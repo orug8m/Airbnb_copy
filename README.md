@@ -18,7 +18,7 @@
   |meal_time_of_day|string|------|
   |host_id|integer|null: false, foreign_key: true|
   |user_id|integer|null: false, foreign_key: true|
-  |room_image_id|text|foreign_key: true|
+  |room_image_id|integer|foreign_key: true|
 
 ### Association
 
@@ -39,7 +39,7 @@
   |category|string|null: false|
   |host_id|integer|null: false, foreign_key: true|
   |user_id|integer|null: false, foreign_key: true|
-  |experience_image_id|text|foreign_key: true|
+  |experience_image_id|integer|foreign_key: true|
 
 ### Association
 
@@ -61,7 +61,7 @@
   |time_of_day|string|null: false|
   |host_id|integer|null: false, foreign_key: true|
   |user_id|integer|null: false, foreign_key: true|
-  |restaurant_image_id|text|foreign_key: true|
+  |restaurant_image_id|integer|foreign_key: true|
 
 ### Association
 
@@ -146,10 +146,10 @@
   |------|------|------|
   |title|string|null: false|
   |image_url|text|null: false|
-  |room_id|references|null: false, foreign_key: true|
+  |restaurant_id|references|null: false, foreign_key: true|
 
 ### Association
- - belongs_to :restaurants
+ - belongs_to :restaurant
 
  ## users_rooms table (intermidiate)
 
