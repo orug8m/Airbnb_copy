@@ -1,5 +1,16 @@
 # README
 
+ ## shares table
+
+  |Column|Type|Options|
+  |------|------|------|
+
+### Association
+
+ - has_many :rooms
+ - has_many :experiences
+ - has_many :restaurants
+
  ## rooms table
 
   |Column|Type|Options|
@@ -7,6 +18,8 @@
   |title|string|null: false, index :true|
   |type|string|null: false|
   |price|integer|null: false|
+  |cleaning_cost|integer|null: false|
+  |vat_jst|integer|null: false|
   |location|string|null: false|
   |description|text|null: false|
   |hm_rooms|integer|null: false|
@@ -22,6 +35,7 @@
 
 ### Association
 
+ - belongs_to :share
  - belongs_to :host
  - has_many :room_images
  - has_many :users, through: :users_rooms
@@ -43,6 +57,7 @@
 
 ### Association
 
+ - belongs_to :share
  - belongs_to :host
  - has_many :experience_images
  - has_many :users, through: :users_experiences
@@ -65,6 +80,7 @@
 
 ### Association
 
+ - belongs_to :share
  - belongs_to :host
  - has_many :restaurant_images
  - has_many :users, through: :users_restaurants
@@ -82,6 +98,7 @@
   |birth_year|integer|null: false|
   |email|string|null: false, unique: true|
   |tel|integer|------|
+  |passport|integer|------|
   |currency|string|------|
   |city_country|string|------|
   |description|text|unique: true|
@@ -95,6 +112,9 @@
  - has_many :users_experiences
  - has_many :restaurants, through: :users_restaurants
  - has_many :users_restaurants
+ - has_many :room_books
+ - has_many :experience_books
+ - has_many :restaurant_books
 
  ## hosts table
 
@@ -135,7 +155,7 @@
   |------|------|------|
   |title|string|null: false|
   |image_url|text|null: false|
-  |room_id|references|null: false, foreign_key: true|
+  |experience_id|references|null: false, foreign_key: true|
 
 ### Association
  - belongs_to :experience
@@ -150,6 +170,48 @@
 
 ### Association
  - belongs_to :restaurant
+
+ ## room_books table
+
+  |Column|Type|Option|
+  |------|------|------|
+  |total_guests|integer|null: false|
+  |date|integer|null: false|
+  |requests|text|------|
+  |room_id|references|null: false, foreign_key: true|
+  |user_id|references|null: false, foreign_key: true|
+
+### Association
+ - belongs_to :room
+ - has_many :users
+
+ ## experience_books table
+
+  |Column|Type|Option|
+  |------|------|------|
+  |total_guests|integer|null: false|
+  |date|integer|null: false|
+  |requests|text|------|
+  |room_id|references|null: false, foreign_key: true|
+  |user_id|references|null: false, foreign_key: true|
+
+### Association
+ - belongs_to :experience
+ - has_many :users
+
+ ## restaurant_books table
+
+  |Column|Type|Option|
+  |------|------|------|
+  |total_guests|integer|null: false|
+  |date|integer|null: false|
+  |requests|text|------|
+  |room_id|references|null: false, foreign_key: true|
+  |user_id|references|null: false, foreign_key: true|
+
+### Association
+ - belongs_to :restaurant
+ - has_many :users
 
  ## users_rooms table (intermidiate)
 

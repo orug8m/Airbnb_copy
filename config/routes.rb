@@ -1,3 +1,24 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root 'shares#index'
+  resources :users, only: [:edit, :update, :show]
+  resources :shares, only: :index do
+    collection do
+      get 'search'
+    end
+  end
+  resources :hosts, only: [:new, :create, :edit, :update, :show, :delete] do
+    resources :rooms do
+      resources :room_images, only: [:create, :edit, :update, :show, :delete]
+      resources :room_books, only: [:create, :edit, :update, :show, :delete]
+    end
+    resources :experiences do
+      resources :experience_images, only: [:create, :edit, :update, :show, :delete]
+      resources :experience_books, only: [:create, :edit, :update, :show, :delete]
+    end
+    resources :restaurants do
+      resources :restaurant_images, only: [:create, :edit, :update, :show, :delete]
+      resources :restaurant_books, only: [:create, :edit, :update, :show, :delete]
+    end
+  end
 end
