@@ -1,0 +1,52 @@
+.clearfix {
+    *zoom: 1;
+    &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+}
+
+.italic {
+  font-style: italic;
+}
+
+body {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: $gray;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.header_style {
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: #008489;
+    background-color: transparent;
+    border-width: 0px;
+    border-bottom: 2px solid #008489;
+    bottom: -1px;
+    cursor: pointer;
+    display: inline-block;
+    padding-right: 0px;
+    padding-left: 0px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 700;
+    -webkit-transition-property: color;
+    -moz-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
