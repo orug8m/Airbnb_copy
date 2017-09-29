@@ -1,10 +1,71 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=UTF-8", http: { equiv: "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", http: { equiv: "Content-Type"}}/
     %title Airbnb
+    = favicon_link_tag('favicon.ico')
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %header
+    .header_top.clearfix
+      .leftbar
+        .icon
+          %svg{ viewBox:"0 0 1000 1000", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display: block; fill: currentcolor; height: 1em; width: 1em;"}
+            %path{ d:"M499.3 736.7c-51-64-81-120.1-91-168.1-10-39-6-70 11-93 18-27 45-40 80-40s62 13 80 40c17 23 21 54 11 93-11 49-41 105-91 168.1zm362.2 43c-7 47-39 86-83 105-85 37-169.1-22-241.1-102 119.1-149.1 141.1-265.1 90-340.2-30-43-73-64-128.1-64-111 0-172.1 94-148.1 203.1 14 59 51 126.1 110 201.1-37 41-72 70-103 88-24 13-47 21-69 23-101 15-180.1-83-144.1-184.1 5-13 15-37 32-74l1-2c55-120.1 122.1-256.1 199.1-407.2l2-5 22-42c17-31 24-45 51-62 13-8 29-12 47-12 36 0 64 21 76 38 6 9 13 21 22 36l21 41 3 6c77 151.1 144.1 287.1 199.1 407.2l1 1 20 46 12 29c9.2 23.1 11.2 46.1 8.2 70.1zm46-90.1c-7-22-19-48-34-79v-1c-71-151.1-137.1-287.1-200.1-409.2l-4-6c-45-92-77-147.1-170.1-147.1-92 0-131.1 64-171.1 147.1l-3 6c-63 122.1-129.1 258.1-200.1 409.2v2l-21 46c-8 19-12 29-13 32-51 140.1 54 263.1 181.1 263.1 1 0 5 0 10-1h14c66-8 134.1-50 203.1-125.1 69 75 137.1 117.1 203.1 125.1h14c5 1 9 1 10 1 127.1.1 232.1-123 181.1-263.1z"}
+        .leftbar__searchboxs
+          .searchbox.searchbox_text
+            .search_field_box
+              %label{for: "search_field", class: ""}
+                .search_icon
+                  %svg{ viewBox:"0 0 24 24", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display: block; fill: rgb(118, 118, 118); height: 18px; width: 18px;"}
+                    %path{ d:"M10.4 18.2c-4.2-.6-7.2-4.5-6.6-8.8.6-4.2 4.5-7.2 8.8-6.6 4.2.6 7.2 4.5 6.6 8.8-.6 4.2-4.6 7.2-8.8 6.6M23 22l-5-5c1.4-1.4 2.3-3.1 2.6-5.2.7-5.1-2.8-9.7-7.8-10.5-5-.7-9.7 2.8-10.5 7.9-.7 5.1 2.8 9.7 7.8 10.5 2.5.4 4.9-.3 6.7-1.7v.1l5 5c.3.3.8.3 1.1 0 .3-.3.4-.8.1-1.1", fill:{rule:"evenodd"}}
+                %input{ type:"text", name: "location", value:"",autocomplete:"off", placeholder:"Anywhere", class:"search_field", id:"search_field", data:{reactid:""} }
+          .searchbox.searchbox_cal
+            .search_field_box
+              %label{for: "search_field", class: ""}
+                .search_icon
+                  %svg{ viewBox:"0 0 24 24", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display:block;fill:currentColor;height:18px;width:18px;", data:{reactid:""}}
+                    %path{d:"M22 9.5V3h-4.75V1a.75.75 0 1 0-1.5 0v2H8.249l.001-2a.75.75 0 1 0-1.5 0l-.001 2H2v19.008a1 1 0 0 0 .992.992h18.016a1 1 0 0 0 .992-.992V9.5zm-18.5-5h3.248V5a.75.75 0 0 0 1.5 0v-.5h7.502V5a.75.75 0 0 0 1.5 0v-.5h3.25V8h-17V4.5zm0 17v-12h17v12h-17z"}, fill:{rule:evenodd"}, data:{reactid:""}
+                %input{ type:"text", name: "calender", value:"",autocomplete:"off", placeholder:"Anyime", class:"search_field", id:"search_field", data:{reactid:""} }
+          .searchbox.searchbox_num
+            .search_field_box
+              %label{for: "search_field", class: ""}
+                .search_icon
+                  %svg{ viewBox:"0 0 24 24", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display:block;fill:currentColor;height:18px;width:18px;", data:{reactid:""}}
+                    %path{ d:"M3.31 11.565c-.657.503-1.101.992-1.47 1.664-1.141 2.08-1.464 6.818-.199 8.523 1.302 1.755 2.688 2.154 6.542 2.154 2.814 0 4.703-1.003 5.166-3.427.16-.839.139-1.547-.013-2.588l-.055-.367c-.122-.797-.163-1.179-.16-1.662.01-1.547.733-2.278 2.623-3.239.555-.283.903-.854.901-1.476-.001-.468-.2-.842-.538-1.209a3.055 3.055 0 0 1-.48-.69c-.315-.618-.397-1.19-.388-1.977v-.123c0-1.648.812-2.646 2.161-2.646 1.35 0 2.16.998 2.16 2.646 0 1.037-.233 1.974-.987 2.79-.34.368-.538.74-.54 1.209a1.65 1.65 0 0 0 .904 1.476c1.869.952 2.601 1.693 2.634 3.25.009.405.022.767.049 1.366.109 2.45.06 3.222-.338 3.904-.474.809-1.603 1.24-3.89 1.263-1.194.012-1.64-.018-2.362-.184a.75.75 0 1 0-.335 1.462c.86.198 1.41.235 2.713.222 2.758-.028 4.371-.643 5.168-2.006.611-1.043.666-1.932.543-4.727-.027-.589-.04-.941-.048-1.331-.048-2.273-1.14-3.377-3.454-4.556a.15.15 0 0 1-.083-.135c0-.016.032-.077.141-.196.61-.66.996-1.43 1.204-2.265.14-.558.182-1.028.182-1.542 0-2.416-1.407-4.146-3.661-4.146s-3.66 1.73-3.66 4.146l-.001.108c-.01 1.01.1 1.788.55 2.673.188.368.425.712.716 1.027.108.117.14.178.14.196a.15.15 0 0 1-.082.134c-2.343 1.192-3.429 2.289-3.442 4.567-.003.585.044 1.026.177 1.897l.054.357c.13.89.146 1.448.023 2.09-.298 1.564-1.513 2.21-3.692 2.21-3.422 0-4.397-.282-5.337-1.549-.86-1.159-.578-5.29.309-6.907.26-.475.566-.811 1.067-1.195.291-.223 1.9-1.297 2.423-1.673.446-.321.71-.839.709-1.388l-.001-.15a1.755 1.755 0 0 0-.649-1.34C6.01 7.628 5.537 6.17 5.537 4.721c0-1.928 1.107-3.13 2.646-3.13s2.646 1.202 2.646 3.13c0 1.465-.458 2.913-1.144 3.481-.415.344-.65.836-.65 1.404a1.698 1.698 0 0 0 .922 1.519c.408.208.57.29.791.407a.75.75 0 1 0 .7-1.327c-.23-.12-.396-.206-.808-.416a.198.198 0 0 1-.106-.177c0-.123.034-.193.108-.254 1.1-.911 1.687-2.77 1.687-4.637 0-2.73-1.75-4.63-4.146-4.63s-4.146 1.9-4.146 4.63c0 1.85.606 3.724 1.71 4.637.07.059.106.13.106.193v.15a.204.204 0 0 1-.084.163c-.487.35-2.12 1.441-2.459 1.7z"}, fill:{rule:"evenodd"}, data:{reactid:""}
+                %input{ type:"text", name: "guest", value:"",autocomplete:"off", placeholder:"1 guest", class:"search_field", id:"search_field", data:{reactid:""} }
+      .rightbar
+        %ul
+          %li.text
+            = link_to '#' do
+              Become a Host
+          %li.text
+            = link_to '#' do
+              Trips
+          %li.text
+            = link_to '#' do
+              Messages
+          %li.text
+            = link_to '#' do
+              Help
+          %li.user
+            .user_image
+              = link_to '#' do
+                = image_tag("user_pic-50x50.png")
+    .header_bottom.clearfix
+      %ul.header_style
+        %li
+          = link_to '#' do
+            FOR YOU
+        %li
+          = link_to '#' do
+            HOMES
+        %li
+          = link_to '#' do
+            EXPERIENCES
+        %li
+          = link_to '#' do
+            RESTAURANTS
+  %body.clearfix
     = yield
