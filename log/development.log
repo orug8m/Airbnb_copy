@@ -3099,3 +3099,10 @@ Processing by SharesController#index as HTML
 Completed 200 OK in 654ms (Views: 650.2ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-09-29 19:19:16 +0900
+Processing by SharesController#index as HTML
+  Rendering shares/index.html.haml within layouts/application
+  Rendered shares/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 1007ms (Views: 1002.9ms | ActiveRecord: 0.0ms)
+
+
