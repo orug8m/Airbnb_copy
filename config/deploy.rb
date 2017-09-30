@@ -4,7 +4,7 @@ lock '3.9.1'
 set :application, 'Airbnb'
 set :repo_url,  'git@github.com:lichtshinoza/Airbnb.git'
 
-set :deploy_to, '/var/www/Airbnb'
+set :deploy_to, '/var/www/Airbnb/current'
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
