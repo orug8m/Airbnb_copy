@@ -1,17 +1,34 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.user__wrap
+  .user__wrap__field
+    %button{type:"button", class:"cross", aria:{expanded:"false"}, aria:{busy:"false"}, style:"padding: 0px;"}
+      %svg{viewBox:"0 0 24 24", role:"img", aria:{label:"Close"}, focusable:"false", style:"display: block; fill: rgb(118, 118, 118); height: 16px; width: 16px;"}
+        %path{fill:{rule:"evenodd"}, d:"M23.25 24a.744.744 0 0 1-.53-.22L12 13.062 1.28 23.782a.75.75 0 0 1-1.06-1.06L10.94 12 .22 1.28A.75.75 0 1 1 1.28.22L12 10.94 22.72.22a.749.749 0 1 1 1.06 1.06L13.062 12l10.72 10.72a.749.749 0 0 1-.53 1.28"}
+    .user_login
+      %h2 Log in to continue
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field_box
+        .field
+          = f.email_field :email, autofocus: true, class:"input_field", placeholder: "your email", autocomplete: "off"
+          .icon
+            %svg{ viewBox:"0 0 24 24", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display: block; fill: currentcolor; height: 1em; width: 1em;"}
+              %path{ fill:{rule:"evenodd"}, d:"M22.497 4H1.503C.665 4 0 4.673 0 5.507v12.985C0 19.326.672 20 1.503 20h20.994A1.5 1.5 0 0 0 24 18.492V5.507C24 4.674 23.328 4 22.497 4zM23 18.203l-6.141-7.907L23 5.628v12.575zM22.174 5l-9.685 7.362c-.259.196-.719.196-.977 0L1.827 5h20.347zM1 5.628l6.14 4.667L1 18.185V5.629zM1.634 19l6.302-8.1 2.97 2.258c.616.468 1.572.468 2.188 0l2.969-2.257L22.353 19H1.633z"}
+      .field_box
+        .field
+          = f.password_field :password, autocomplete: "off", class:"input_field", placeholder: "password", autocomplete: "off"
+          .icon
+            %svg{ viewBox:"0 0 24 24", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display: block; fill: currentcolor; height: 1em; width: 1em;"}
+              %path{ fill:{rule:"evenodd"}, d:"M19.5 9H19V7A7 7 0 1 0 5 7v2h-.5C3.724 9 3 9.724 3 10.5v12c0 .776.724 1.5 1.5 1.5h15c.776 0 1.5-.724 1.5-1.5v-12c0-.776-.724-1.5-1.5-1.5zm.5 13.5c0 .224-.276.5-.5.5h-15c-.224 0-.5-.276-.5-.5v-12c0-.224.276-.5.5-.5h1a.5.5 0 0 0 .5-.5V7a6 6 0 1 1 12 0v2.5a.5.5 0 0 0 .5.5h1c.224 0 .5.276.5.5v12zM12 12a3 3 0 0 0-3 3c0 .83.355 1.591.936 2.149l-.898 2.16A.5.5 0 0 0 9.5 20h5a.5.5 0 0 0 .464-.686l-.874-2.186c.562-.548.91-1.306.91-2.128a3 3 0 0 0-3-3zm1.036 5.186L13.76 19h-3.51l.743-1.786a.5.5 0 0 0-.168-.596A2 2 0 1 1 14 15c0 .643-.305 1.237-.795 1.597a.5.5 0 0 0-.17.589zM12 3a4 4 0 0 0-4 4v2.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V7a4 4 0 0 0-4-4zm3 6H9V7a3 3 0 1 1 6 0v2z"}
+      - if devise_mapping.rememberable?
+        .field_remember
+          .field
+            = f.check_box :remember_me, class:"check_box_hidden"
+            %span{data:{fake:{checkbox:"true"}}, class:"check_box"}
+            = f.label :remember_me, class:"remember_me_text"
+          %button.green_text
+            .show_password show password
+      .actions
+        .submit_box
+          %button{type:"submit", name:"commit", value:"Log in", data:{disable:{with:"Log in"}}, class:"log_in_button"}
+            %span{class:"log_in_button_text"}
+              Log in
+    = render "devise/shared/links"

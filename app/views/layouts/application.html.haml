@@ -7,8 +7,8 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %header
-    .header_top.clearfix
+  %header.fix
+    .header_top
       .leftbar
         .icon
           %svg{ viewBox:"0 0 1000 1000", role:"presentation", aria:{hidden:"true"}, focusable:"false", style:"display: block; fill: currentcolor; height: 1em; width: 1em;"}
@@ -49,11 +49,22 @@
           %li.text
             = link_to '#' do
               Help
-          %li.user
-            .user_image
-              = link_to '#' do
-                = image_tag("user_pic-50x50.png")
-    .header_bottom.clearfix
+          - if user_signed_in?
+            %li.user
+              .user_image#user_image
+                = link_to '#' do
+                  = image_tag("user_pic-50x50.png")
+              %li.text
+                = link_to destroy_user_session_path, method: :delete do
+                  Log out
+          - else
+            %li.text
+              = link_to new_user_registration_path do
+                Sign up
+            %li.text
+              = link_to new_user_session_path do
+                Log in
+    .header_bottom
       %ul.header_style
         %li
           = link_to '#' do
@@ -67,5 +78,6 @@
         %li
           = link_to '#' do
             RESTAURANTS
-  %body.clearfix
+  .header_position_space
+  %body
     = yield
