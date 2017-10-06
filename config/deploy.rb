@@ -1,4 +1,5 @@
 # config valid only for current version of Capistrano
+set :linked_files, %w{ config/secrets.yml }
 lock '3.9.1'
 
 set :application, 'Airbnb'
