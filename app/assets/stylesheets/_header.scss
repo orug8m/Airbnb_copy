@@ -1,9 +1,9 @@
 header {
   width: 100%;
-  min-width: 1025px;
+  min-width: 1080px;
   height: 106px;
-  position: fixed;
   .header_top{
+    width: 100%;
     height: 64px;
     .leftbar{
       float:left;
@@ -49,7 +49,7 @@ header {
             }
           }
           input {
-            width: (190px - 30px);
+            width: (190px - 60px);
             font-size: 15px;
             line-height: 18px;
             letter-spacing: 0.2px;
@@ -64,7 +64,6 @@ header {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-
             .search_field {
               width: 100%;
               background-color: transparent;
@@ -127,6 +126,7 @@ header {
   }
 
   .header_bottom{
+    width: 100%;
     height: 42px;
     padding-left: 24px;
     ul{
@@ -157,3 +157,4 @@ header {
     }
   }
 }
+

@@ -92,16 +92,17 @@
   |------|------|------|
   |last_name|string|null: false|
   |first_name|string|null: false|
-  |gender|string|null: false|
-  |birth_month|integer|null: false|
-  |birth_day|integer|null: false|
-  |birth_year|integer|null: false|
+  |gender|string|------|
+  |birth_month|integer|------|
+  |birth_day|integer|------|
+  |birth_year|integer|------|
   |email|string|null: false, unique: true|
   |tel|integer|------|
   |passport|integer|------|
   |currency|string|------|
   |city_country|string|------|
-  |description|text|unique: true|
+  |description|text|------|
+  |user_image_url|text|------|
 
 
 ### Association
