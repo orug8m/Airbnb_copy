@@ -93,12 +93,12 @@
   |last_name|string|null: false|
   |first_name|string|null: false|
   |gender|string|------|
-  |birth_month|integer|------|
+  |birth_month|string|------|
   |birth_day|integer|------|
   |birth_year|integer|------|
   |email|string|null: false, unique: true|
   |tel|integer|------|
-  |passport|integer|------|
+  |native_language|string|------|
   |currency|string|------|
   |city_country|string|------|
   |description|text|------|
@@ -124,11 +124,12 @@
   |last_name|string|null: false|
   |first_name|string|null: false|
   |gender|string|null: false|
-  |birth_month|integer|null: false|
+  |birth_month|string|null: false|
   |birth_day|integer|null: false|
   |birth_year|integer|null: false|
   |email|string|null: false, unique: true|
   |tel|integer|null: false, unique: true|
+  |native_language|string|null: false|
   |currency|string|null: false|
   |city_country|string|null: false|
   |description|text|null: false, unique: true|

@@ -248,54 +248,54 @@ header {
       -webkit-transition-timing-function: ease-out;
       transition-timing-function: ease-out;
     }
-      ul{
-        width: 600px;
+    ul{
+      width: 600px;
+      float: left;
+      li{
+        margin-right: 32px;
+        padding: 12px 0;
         float: left;
-        li{
-          margin-right: 32px;
-          padding: 12px 0;
-          float: left;
-          &.green{
-            border-bottom: 2px solid $green;
+        &.green{
+          border-bottom: 2px solid $green;
+        }
+        a {
+          color: $gray;
+          &:link  {
+            text-decoration: none;
           }
-          a {
-            color: $gray;
-            &:link  {
-              text-decoration: none;
-            }
 
-            &:visited   {
-              text-decoration: none;
-            }
-
-            &:hover {
-              text-decoration: none;
-            }
-
-            &:active    {
-              text-decoration: none;
-            }
+          &:visited   {
+            text-decoration: none;
           }
-          a.green {
-            color: $green;
-            &:link  {
-              text-decoration: none;
-            }
 
-            &:visited   {
-              text-decoration: none;
-            }
+          &:hover {
+            text-decoration: none;
+          }
 
-            &:hover {
-              text-decoration: none;
-            }
+          &:active    {
+            text-decoration: none;
+          }
+        }
+        a.green {
+          color: $green;
+          &:link  {
+            text-decoration: none;
+          }
 
-            &:active    {
-              text-decoration: none;
-            }
+          &:visited   {
+            text-decoration: none;
+          }
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          &:active    {
+            text-decoration: none;
           }
         }
       }
+    }
     }
     &_user_menu{
       height: 42px;

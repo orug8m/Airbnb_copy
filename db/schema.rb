@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003125750) do
+ActiveRecord::Schema.define(version: 20171010031418) do
+
+  create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "last_name",                     null: false
+    t.string   "first_name",                    null: false
+    t.string   "gender",                        null: false
+    t.string   "birth_month",                   null: false
+    t.integer  "birth_day",                     null: false
+    t.integer  "birth_year",                    null: false
+    t.string   "email",                         null: false
+    t.integer  "tel",                           null: false
+    t.string   "currency",                      null: false
+    t.string   "city_country",                  null: false
+    t.text     "description",     limit: 65535, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "native_language",               null: false
+  end
 
   create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
@@ -41,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171003125750) do
     t.string   "city_country"
     t.text     "discription",            limit: 65535
     t.text     "user_image_url",         limit: 65535
+    t.string   "native_language"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

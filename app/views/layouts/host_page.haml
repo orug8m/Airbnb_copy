@@ -20,7 +20,7 @@
           %li.text_holizon
             .text_vertical
               .text_wrap
-                = link_to '#' do
+                = link_to new_host_path do
                   Become a Host
           %li.text_holizon
             .text_vertical
@@ -54,41 +54,42 @@
                 .text_wrap
                   = link_to new_user_session_path do
                     Log in
-    .header_bottom
-      .header_bottom_user_menu
-        .header_bottom_user_menu_lists
-          .header_bottom_user_menu_lists_list
-            %ul
-              %li
-                .user_menu_list
-                  .user_menu_list_text
-                    = link_to '#' do
-                      Dashbord
-              %li
-                .user_menu_list
-                  .user_menu_list_text
-                    = link_to '#' do
-                      Inbox
-              %li
-                .user_menu_list
-                  .user_menu_list_text
-                    = link_to '#' do
-                      Your List
-              %li
-                .user_menu_list
-                  .user_menu_list_text
-                    = link_to '#' do
-                      Your Trips
-              %li
-                .user_menu_list
-                  .user_menu_list_text
-                    = link_to '#' do
-                      Profile
-              %li
-                .user_menu_list
-                  .user_menu_list_text
-                    = link_to '#' do
-                      Account
+    / .header_bottom
+    /   .header_bottom_user_menu
+    /     .header_bottom_user_menu_lists
+    /       .header_bottom_user_menu_lists_list
+    /         %ul
+    /           %li
+    /             .user_menu_list
+    /               .user_menu_list_text
+    /                 = link_to '#' do
+    /                   Dashbord
+    /           %li
+    /             .user_menu_list
+    /               .user_menu_list_text
+    /                 = link_to '#' do
+    /                   Inbox
+    /           %li
+    /             .user_menu_list
+    /               .user_menu_list_text
+    /                 = link_to '#' do
+    /                   Your List
+    /           %li
+    /             .user_menu_list
+    /               .user_menu_list_text
+    /                 = link_to '#' do
+    /                   Your Trips
+    /           %li
+    /             .user_menu_list
+    /               .user_menu_list_text
+    /                 = link_to '#' do
+    /                   Profile
+    /           %li
+    /             .user_menu_list
+    /               .user_menu_list_text
+    /                 = link_to '#' do
+    /                   Account
+    .header_bottom2_invitephoto
   .header_position_space
   %body
     = yield
