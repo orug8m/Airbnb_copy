@@ -4,6 +4,8 @@ header {
   height: 106px;
   z-index: 5;
   background-color: white;
+  border-bottom: 1px solid #e4e4e4;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   .header_top{
     width: 100%;
     height: 64px;
@@ -13,10 +15,18 @@ header {
         height: 34px;
         width: 34px;
         padding: 15px 24px;
-        color: $orange;
         display: inline-block;
         vertical-align: middle;
         font-size: 34px;
+        float: left;
+      }
+      .top_icon{
+        color: $orange;
+      }
+      .user_page_search_box{
+        width: 50px;
+        height: 64px;
+        border-left: 1px solid $light_gray;
         float: left;
       }
       &__searchboxs {
@@ -85,8 +95,21 @@ header {
         letter-spacing: 0.3px;
         display: inline-block;
         float: left;
-        &.text {
-          padding: 23px 16px;
+        &.text_holizon {
+          padding: 0 16px;
+          .text_vertical{
+            padding: 15px 0;
+          }
+          .text_wrap{
+            display: inline-block;
+            padding: 8px 0;
+            vertical-align: middle;
+            line-height: 1;
+            border-bottom: 2px solid transparent;
+            &:hover{
+              border-bottom-color: $darkdarkgray;
+            }
+          }
         }
         a {
           color: $gray;
@@ -121,6 +144,75 @@ header {
             vertical-align: middle;
             width: 28px;
             height: 28px;
+            &:hover{
+              display: inline-block;
+              vertical-align: middle;
+              line-height: 1;
+              border-bottom: 2px solid transparent;
+              border-bottom-color: $darkdarkgray;
+            }
+          }
+          .hat{
+            z-index: 11;
+            right: 20px;
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            top: 56px;
+            .white{
+              fill: white;
+            }
+            .gray_line{
+              stroke: $light_gray;
+              fill: transparent;
+            }
+          }
+          .user_menu{
+            right: 0px;
+            background-color: white;
+            border: 1px solid $light_gray;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            min-height: 60px;
+            position: absolute;
+            top: 65px;
+            &.hidden{
+              display: none;
+            }
+            ul{
+              list-style-type: none;
+              li{
+                width: 100%;
+                display: inline-block;
+                .menu_text{
+                  width: 248px;
+                  padding: 0 16px;
+                  margin-bottom: 1px;
+                  .menu_text_content{
+                    width: 100%;
+                    a{
+                      font-weight: normal;
+                      color: #767676;
+                      font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+                      margin: 0px;
+                      word-wrap: break-word;
+                      font-size: 15px;
+                      line-height: 18px;
+                      letter-spacing: 0.2px;
+                      display: block;
+                      padding: 16px;
+                      text-decoration: none;
+                      border-bottom: 1px solid transparent;
+                      border-color: #F2F2F2;
+                      &:hover{
+                        border-bottom: 1px solid transparent;
+                        border-color: $gray;
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -130,29 +222,119 @@ header {
   .header_bottom{
     width: 100%;
     height: 42px;
+    &_top{
     padding-left: 24px;
-    ul{
-      width: 600px;
-      float: left;
-      li{
-        display: inline-block;
-        a {
-          color: $gray;
+    .header_style {
+      font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+      color: #008489;
+      background-color: transparent;
+      border-width: 0px;
+      bottom: -1px;
+      cursor: pointer;
+      display: inline-block;
+      padding-right: 0px;
+      padding-left: 0px;
+      text-decoration: none;
+      white-space: nowrap;
+      font-weight: 700;
+      -webkit-transition-property: color;
+      -moz-transition-property: color;
+      transition-property: color;
+      -webkit-transition-duration: 300ms;
+      transition-duration: 300ms;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+      ul{
+        width: 600px;
+        float: left;
+        li{
           margin-right: 32px;
-          &:link  {
-            text-decoration: none;
+          padding: 12px 0;
+          float: left;
+          &.green{
+            border-bottom: 2px solid $green;
           }
+          a {
+            color: $gray;
+            &:link  {
+              text-decoration: none;
+            }
 
-          &:visited   {
-            text-decoration: none;
+            &:visited   {
+              text-decoration: none;
+            }
+
+            &:hover {
+              text-decoration: none;
+            }
+
+            &:active    {
+              text-decoration: none;
+            }
           }
+          a.green {
+            color: $green;
+            &:link  {
+              text-decoration: none;
+            }
 
-          &:hover {
-            text-decoration: none;
+            &:visited   {
+              text-decoration: none;
+            }
+
+            &:hover {
+              text-decoration: none;
+            }
+
+            &:active    {
+              text-decoration: none;
+            }
           }
-
-          &:active    {
-            text-decoration: none;
+        }
+      }
+    }
+    &_user_menu{
+      height: 42px;
+      width: 100%;
+      background-color: $gray;
+      &_lists{
+        width: 100%;
+        padding: 0 144px;
+        &_list{
+          width: 100%;
+          margin: 0 auto;
+          float: left;
+          ul{
+            float: left;
+            li{
+              display: inline-block;
+              .user_menu_list{
+                padding: 10px 14px;
+                .user_menu_list_text{
+                  a{
+                    color: $light_gray;
+                    margin-right: 32px;
+                    &:link  {
+                      text-decoration: none;
+                    }
+                    &:visited   {
+                      text-decoration: none;
+                    }
+                    &:hover {
+                      color: white;
+                      text-decoration: none;
+                    }
+                    &:active    {
+                      text-decoration: none;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

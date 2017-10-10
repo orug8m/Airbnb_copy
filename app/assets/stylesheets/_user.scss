@@ -100,7 +100,6 @@
   .field-input {
     .field_with_errors {
       position: relative;
-
       &:after {
         content: '';
         display: block;
@@ -478,12 +477,6 @@
         float: left;
         width: 31.38%;
         margin: 8px 4px;
-        &.month {
-        }
-        &.day {
-        }
-        &.year{
-        }
         .select_birthday {
           -webkit-appearance: none;
           font-size: 19px;
@@ -512,12 +505,6 @@
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
-        }
-        &.birth_data_input_month {
-        }
-        &.birth_data_input_day {
-        }
-        &.birth_data_input_year{
         }
       }
     }
@@ -556,6 +543,87 @@
         padding: 0 0 0 4px;
         float: left;
         display: inline-block;
+      }
+    }
+  }
+}
+
+.user_wrap{
+  width: 100%;
+  margin: 24px 0;
+  .user_content{
+    width: 1080px;
+    margin: 0 auto;
+    &_left{
+      width: 240px;
+      float: left;
+      &_lists{
+        ul{
+          li{
+            padding: 6px;
+          }
+        }
+      }
+      .show_profile{
+        border-color: #c4c4c4;
+        background: white;
+        color: #484848;
+        border-radius: 4px;
+        border: 1px solid;
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        line-height: 1.43;
+        padding: 7px 21px;
+        margin-top: 24px;
+        a{
+          color: $gray;
+        }
+      }
+    }
+    &_right{
+      width: 770px;
+      float: right;
+      &_contents{
+        width: 100%;
+        border: 1px solid #dce0e0;
+        background-color: #fff;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        &_title{
+          color: $gray;
+          font-size: 16px;
+          background-color: #edefed;
+          padding: 12px 20px;
+        }
+        &_content{
+          height:300px;
+          margin: 0;
+          padding: 20px 20px;
+          &_list{
+            width: 100%;
+            margin-bottom: 24px;
+            display: inline-block;
+            &_title{
+              width: 20%;
+              text-align: right;
+              padding: 9px 6px 8px 6px;
+              float: left;
+            }
+            &_input{
+              width: 70%;
+              float: left;
+              padding: 0 6px;
+              .user_inputbox{
+                display: block;
+                padding: 8px 10px;
+                width: 100%;
+                border: 1px solid $gray76;
+              }
+            }
+          }
+        }
       }
     }
   }

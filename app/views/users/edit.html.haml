@@ -1,0 +1,25 @@
+.user_wrap.clearfix
+  .user_content
+    .user_content_left
+      .user_content_left_lists
+        %ul
+          %li Edit Profile
+          %li Photo and Video
+          %li Trust and Verification
+          %li Reviews
+          %li References
+      .show_profile
+        = link_to '#' do
+          View Profile
+    .user_content_right
+      .user_content_right_contents
+        .user_content_right_contents_title Required
+        .user_content_right_contents_content
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title First Name
+            .user_content_right_contents_content_list_input
+              %input{class:"user_inputbox", placeholder:"your first name", autocomplete: "off"}
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Last Name
+            .user_content_right_contents_content_list_input
+              %input{class:"user_inputbox", placeholder:"your last name", autocomplete: "off"}

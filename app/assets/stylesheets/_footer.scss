@@ -1,0 +1,116 @@
+.footer_wrap{
+  box-sizing: border-box;
+  background-color: white;
+  color: $gray;
+  border-top: 1px solid #dce0e0;
+}
+footer{
+  padding: 48px 0;
+
+  .footer_contents{
+    max-width: 1080px;
+    min-width: 744px;
+    margin: 0 auto;
+    position: relative;
+    padding: 48px 24px;
+    &_main{
+      &_top{
+        padding-bottom: 24px;
+        .select_cur_lang{
+          width: 25%;
+          float: left;
+          &_each{
+            font-size: 19px;
+            line-height: 24px;
+            color: #484848;
+            position: relative;
+            display: block;
+            background: #ffffff;
+            border: 1px solid #DBDBDB;
+            border-radius: 2px;
+            margin-bottom: 8px;
+            width: 100%;
+          }
+          .select_language {
+            -webkit-appearance: none;
+            font-size: 19px;
+            line-height: 24px;
+            color: rgb(72, 72, 72);
+            font-weight: 300;
+            background-color: transparent;
+            height: 46px;
+            display: block;
+            width: 100%;
+            border-width: initial;
+            border-style: none;
+            border-color: initial;
+            border-image: initial;
+            border-radius: 0px;
+            padding: 11px;
+          }
+        }
+        .link_lists{
+          margin-left: 8.3%;
+          float: left;
+          a{
+            color: $gray76;
+          }
+          h3.font{
+            font-weight: 700;
+            color: $gray;
+            margin: 0px;
+            word-wrap: break-word;
+            font-size: 15px;
+            line-height: 18px;
+            letter-spacing: 0.2px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer_border{
+    border-bottom: 1px solid $light_gray;
+    padding-top: 24px;
+    margin-bottom: 24px;
+  }
+  .footer_contents_main_bottom_contents{
+
+  }
+  .footer_contents_main_bottom_contents_left{
+    .mini_icon{
+      color: $gray76;
+      display: inline-block;
+      margin-right: 8px;
+      float: left;
+    }
+    .company{
+      padding: 4px 0;
+      float: left;
+      word-wrap: break-word;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.2px;
+    }
+  }
+  .footer_contents_main_bottom_contents_right{
+    float: right;
+    .footer_bottom_text{
+      li.text{
+        display: inline-block;
+        padding-left: 8px;
+        a{
+          color: $darkgray;
+        }
+      }
+      li.sns{
+        display: inline-block;
+        padding: 0 8px;
+        vertical-align: middle;
+        a{
+          color: $darkgray;
+        }
+      }
+    }
+  }
+}
