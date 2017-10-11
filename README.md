@@ -133,6 +133,7 @@
   |currency|string|null: false|
   |city_country|string|null: false|
   |description|text|null: false, unique: true|
+  |user_id|integer|null: false|
 
 ### Association
 
