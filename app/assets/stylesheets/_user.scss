@@ -598,7 +598,7 @@
           padding: 12px 20px;
         }
         &_content{
-          width:100%;
+          width:95%;
           margin: 0;
           padding: 20px 20px;
           &_list{
@@ -612,13 +612,13 @@
               float: left;
             }
             &_input{
-              width: 70%;
+              width: 75%;
               float: left;
               padding: 0 6px;
               .user_inputbox{
                 display: block;
                 padding: 8px 10px;
-                width: 100%;
+                width: 80%;
                 border: 1px solid $gray76;
               }
               .comment{

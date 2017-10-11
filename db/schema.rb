@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010031418) do
+ActiveRecord::Schema.define(version: 20171011093659) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "last_name",                     null: false
@@ -20,13 +20,14 @@ ActiveRecord::Schema.define(version: 20171010031418) do
     t.integer  "birth_day",                     null: false
     t.integer  "birth_year",                    null: false
     t.string   "email",                         null: false
-    t.integer  "tel",                           null: false
+    t.string   "tel",                           null: false
     t.string   "currency",                      null: false
     t.string   "city_country",                  null: false
     t.text     "description",     limit: 65535, null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "native_language",               null: false
+    t.string   "user_id",                       null: false
   end
 
   create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,7 +54,7 @@ ActiveRecord::Schema.define(version: 20171010031418) do
     t.string   "birth_month"
     t.integer  "birth_day"
     t.integer  "birth_year"
-    t.integer  "tel"
+    t.string   "tel"
     t.string   "currency"
     t.string   "city_country"
     t.text     "discription",            limit: 65535
