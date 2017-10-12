@@ -4,6 +4,7 @@
 
   |Column|Type|Options|
   |------|------|------|
+  |------|------|------|
 
 ### Association
 
