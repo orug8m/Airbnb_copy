@@ -622,10 +622,14 @@
                 border: 1px solid $gray76;
               }
               .comment{
+                width:80%;
+                padding: 4px 8px;
                 color: $gray76;
                 display: inline-block;
               }
               .select_box{
+                width: 25%;
+                margin: 2px 4px;
                 color: $light_gray;
                 position: relative;
                 display: block;
@@ -633,8 +637,6 @@
                 border: 1px solid $light_gray;
                 border-radius: 2px;
                 float: left;
-                width: 31.38%;
-                margin: 2px 4px;
                 .select_gender{
                   -webkit-appearance: none;
                   font-size: 12px;

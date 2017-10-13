@@ -16,10 +16,9 @@ $(function(){
       $('.menu_list').append(html);
     }
   });
-
-  // $(".text_holizon").mouseover(function(){
-  //   $(".text_wrap").css("border-bottom-color","#767676");
-  // }).mouseout(function(){
-  //   $(".text_wrap").css("border-bottom-color","");
-  // });
+  $(document).on('click touchend', function(event) {
+    if (!$(event.target).closest('.user').length) {
+      $('.user_menu, .hat').hide();
+    }
+  });
 });

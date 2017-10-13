@@ -1,0 +1,111 @@
+.header_bottom2
+  .header_bottom2_invitephoto
+    .header_photo_above
+      .page-container-responsive
+        .floting_text
+          .floting_text_field
+            .floting_text_field_box
+              .floting_text_field_box_inside
+                .catchcopy
+                  %h1.white.heavy.bold Let's share your Room, and host!
+                %p.white.space36
+                .space36
+.user_wrap.clearfix
+  .user_content
+    .user_content_right
+      .user_content_right_contents
+        .user_content_right_contents_title Required
+        .user_content_right_contents_content
+        = form_for(@room, type: :hidden) do |f|
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title First Name
+            .user_content_right_contents_content_list_input
+              = f.text_field :title, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off"
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Last Name
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :type, [["Room type", ""], ["Entire home", "Entire home"], ["Private room", "Private room"], ["Shared room", "Shared room"]], {}, {class: 'select_gender'}
+                %span{class:"arrowtobottom"}
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title price
+            .user_content_right_contents_content_list_input
+              = f.number_field :price, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off"
+              %span{class:"arrowtobottom"}
+            .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title cleaning cost
+            .user_content_right_contents_content_list_input
+              = f.number_field :cleaning_cost, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off"
+              %span{class:"arrowtobottom"}
+            .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Input vat rate.
+            .user_content_right_contents_content_list_input
+              = f.number_field :vat_jst, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off"
+              %span{class:"arrowtobottom"}
+            .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Place
+            .user_content_right_contents_content_list_input
+              = f.text_field :location, id:"", class:"user_inputbox", placeholder:"your location", autocomplete: "off"
+              .comment This is only shared once you have a confirmed booking with another Airbnb user. This is how we can all get in touch.
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Explain your room, all about!
+            .user_content_right_contents_content_list_input
+              = f.text_field :description, id:"", class:"user_inputbox", placeholder:"", autocomplete: "off"
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title How many rooms sharing?
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :hm_rooms, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], {}, {class: 'select_birthday'}
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title How many bets?
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :hm_bets, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], {}, {class: 'select_birthday'}
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title How many bathrooms?
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :hm_bathrooms, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], {}, {class: 'select_birthday'}
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              .select_box
+                %label{for: "room_amenity"} テスト
+                = f.check_box 'amenity', {class:'checkbox',checked: 'true'}, true, false
+                / = form_for @form, url: {action: 'confirm', controller: 'rooms_controller'} do |p|
+                /   = p.collection_check_boxes :amenities, @form.amenities, :amenity_name, :amenity_name
+              .comment
+          / .user_content_right_contents_content_list
+          /   .user_content_right_contents_content_list_title What kind of amenities?
+          /   .user_content_right_contents_content_list_input
+          /     .select_box
+          /       = f.check_box :facility, [["Elevator", "Elevator"], ["Free parking on premises", "Free parking on premises"], ["Pool", "Pool"], ["Wheelchair accessible", "Wheelchair accessible"], ["Gym", "Gym"], ["Hot tub", "Hot tub"]], {}, {class: 'select_birthday'}
+          /     .comment
+          / .user_content_right_contents_content_list
+          /   .user_content_right_contents_content_list_title What kind of amenities?
+          /   .user_content_right_contents_content_list_input
+          /     .select_box
+          /       = f.check_box :rules, [["Pets allowed", "Pets allowed"], ["Smoking allowed", "Smoking allowed"], ["Suitable for events", "Suitable for events"], ["Check in is anytime after 3PM", "Check in is anytime after 3PM"], ["Check out by 11AM", "Check out by 11AM"]], {}, {class: 'select_birthday'}
+          /     .comment
+          / .user_content_right_contents_content_list
+          /   .user_content_right_contents_content_list_title What kind of amenities?
+          /   .user_content_right_contents_content_list_input
+          /     .select_box
+          /       = f.check_box :meal_time_of_day, [["Breakfast", "Breakfast"], ["Lunch", "Lunch"], ["Box Lunch option", "Box Lunch option"], ["Dinner", "Dinner"]], {}, {class: 'select_birthday'}
+          /     .comment
+          %input{ type:"hidden", name: "user_id", value:"#{@user.id}" }
+          %input{ type:"hidden", name: "host_id", value:"#{@host.id}" }
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title
+            .user_content_right_contents_content_list_input
+              = f.submit :Send, class: "form__submit btn btn-primary btn-large"
+
+
+

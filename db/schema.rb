@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011093659) do
+ActiveRecord::Schema.define(version: 20171012073034) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "last_name",                     null: false
@@ -28,6 +28,28 @@ ActiveRecord::Schema.define(version: 20171011093659) do
     t.datetime "updated_at",                    null: false
     t.string   "native_language",               null: false
     t.string   "user_id",                       null: false
+  end
+
+  create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                          null: false
+    t.string   "type",                           null: false
+    t.integer  "price",                          null: false
+    t.integer  "cleaning_cost",                  null: false
+    t.integer  "vat_jst",                        null: false
+    t.string   "location",                       null: false
+    t.text     "description",      limit: 65535, null: false
+    t.integer  "hm_rooms",                       null: false
+    t.integer  "hm_bets",                        null: false
+    t.integer  "hm_bathrooms",                   null: false
+    t.string   "amenity"
+    t.string   "facility"
+    t.string   "rules"
+    t.string   "meal_time_of_day"
+    t.integer  "host_id",                        null: false
+    t.integer  "user_id",                        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["title"], name: "index_rooms_on_title", using: :btree
   end
 
   create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
