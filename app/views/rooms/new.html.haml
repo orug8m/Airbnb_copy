@@ -13,19 +13,25 @@
 .user_wrap.clearfix
   .user_content
     .user_content_right
+      - if @room.errors.any?
+        .form__errors
+          %h2= "#{@room.errors.count}件のエラーが発生しました。"
+          %ul
+            - @room.errors.full_messages.each do |msg|
+              %li= msg
       .user_content_right_contents
         .user_content_right_contents_title Required
         .user_content_right_contents_content
         = form_for(@room, type: :hidden) do |f|
           .user_content_right_contents_content_list
-            .user_content_right_contents_content_list_title First Name
+            .user_content_right_contents_content_list_title Title
             .user_content_right_contents_content_list_input
               = f.text_field :title, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off"
           .user_content_right_contents_content_list
-            .user_content_right_contents_content_list_title Last Name
+            .user_content_right_contents_content_list_title Room type
             .user_content_right_contents_content_list_input
               .select_box
-                = f.select :type, [["Room type", ""], ["Entire home", "Entire home"], ["Private room", "Private room"], ["Shared room", "Shared room"]], {}, {class: 'select_gender'}
+                = f.select :roomtype, [["Room type", ""], ["Entire home", "Entire home"], ["Private room", "Private room"], ["Shared room", "Shared room"]], {}, {class: 'select_gender'}
                 %span{class:"arrowtobottom"}
               .comment
           .user_content_right_contents_content_list
@@ -76,32 +82,32 @@
           .user_content_right_contents_content_list
             .user_content_right_contents_content_list_title What kind of amenities?
             .user_content_right_contents_content_list_input
-              .select_box
-                %label{for: "room_amenity"} テスト
-                = f.check_box 'amenity', {class:'checkbox',checked: 'true'}, true, false
-                / = form_for @form, url: {action: 'confirm', controller: 'rooms_controller'} do |p|
-                /   = p.collection_check_boxes :amenities, @form.amenities, :amenity_name, :amenity_name
+              - ['Heating', 'Kitchen', 'TV', 'Wireless Internet', 'Air conditioning','Buzzer/wireless intercom', 'Doorman', 'Dryer', 'Family/kid friendly', 'Hair dryer', 'Hangers', 'Indoor fireplace', 'Iron', 'Laptop friendly workspace', 'Lock on bedroom door', 'Self Check-In', 'Shampoo', 'Washer'].each do |flag|
+                = f.check_box(:amenity, {multiple:'true', id:"room_amenity_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"amenity_#{flag}", flag
               .comment
-          / .user_content_right_contents_content_list
-          /   .user_content_right_contents_content_list_title What kind of amenities?
-          /   .user_content_right_contents_content_list_input
-          /     .select_box
-          /       = f.check_box :facility, [["Elevator", "Elevator"], ["Free parking on premises", "Free parking on premises"], ["Pool", "Pool"], ["Wheelchair accessible", "Wheelchair accessible"], ["Gym", "Gym"], ["Hot tub", "Hot tub"]], {}, {class: 'select_birthday'}
-          /     .comment
-          / .user_content_right_contents_content_list
-          /   .user_content_right_contents_content_list_title What kind of amenities?
-          /   .user_content_right_contents_content_list_input
-          /     .select_box
-          /       = f.check_box :rules, [["Pets allowed", "Pets allowed"], ["Smoking allowed", "Smoking allowed"], ["Suitable for events", "Suitable for events"], ["Check in is anytime after 3PM", "Check in is anytime after 3PM"], ["Check out by 11AM", "Check out by 11AM"]], {}, {class: 'select_birthday'}
-          /     .comment
-          / .user_content_right_contents_content_list
-          /   .user_content_right_contents_content_list_title What kind of amenities?
-          /   .user_content_right_contents_content_list_input
-          /     .select_box
-          /       = f.check_box :meal_time_of_day, [["Breakfast", "Breakfast"], ["Lunch", "Lunch"], ["Box Lunch option", "Box Lunch option"], ["Dinner", "Dinner"]], {}, {class: 'select_birthday'}
-          /     .comment
-          %input{ type:"hidden", name: "user_id", value:"#{@user.id}" }
-          %input{ type:"hidden", name: "host_id", value:"#{@host.id}" }
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Elevator', 'Free parking on premises', 'Pool', 'Wheelchair accessible', 'Gym', 'Hot tub'].each do |flag|
+                = f.check_box(:facility, {multiple:'true', id:"room_facility_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"facility_#{flag}", flag
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Pets allowed', 'Smoking allowed', 'Suitable for events', 'Check in is anytime after 3PM', 'Check out by 11AM'].each do |flag|
+                = f.check_box(:rules, {multiple:'true', id:"room_rules_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"rules_#{flag}", flag
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Breakfast', 'Lunch', 'Box Lunch option', 'Dinner'].each do |flag|
+                = f.check_box(:meal_time_of_day, {multiple:'true', id:"room_meal_time_of_day_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"meal_time_of_day_#{flag}", flag
+              .comment
+          = f.text_field :"host_id", type:"hidden", value:"#{@host.ids}"
           .user_content_right_contents_content_list
             .user_content_right_contents_content_list_title
             .user_content_right_contents_content_list_input

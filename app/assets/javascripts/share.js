@@ -5,16 +5,8 @@ $(function(){
   };
   $(document).on('click','#user_image', function(e){
     e.preventDefault();
-    if($('.user_menu').length){
-      $('.user_menu').remove();
-      $('.hat').remove();
-    }
-    else{
-      var html = buildHTML();
-      $('.user_menu').remove();
-      $('.hat').remove();
-      $('.menu_list').append(html);
-    }
+      $('.user_menu, .hat').toggle()
+
   });
   $(document).on('click touchend', function(event) {
     if (!$(event.target).closest('.user').length) {

@@ -144,13 +144,13 @@ header {
             vertical-align: middle;
             width: 28px;
             height: 28px;
-            &:hover{
-              display: inline-block;
-              vertical-align: middle;
-              line-height: 1;
-              border-bottom: 2px solid transparent;
-              border-bottom-color: $darkdarkgray;
-            }
+            // &:hover{
+            //   display: inline-block;
+            //   vertical-align: middle;
+            //   line-height: 1;
+            //   border-bottom: 2px solid transparent;
+            //   border-bottom-color: $darkdarkgray;
+            // }
           }
           .hat{
             z-index: 11;

@@ -9,32 +9,18 @@ class RoomsController < ApplicationController
 
   end
 
-  # class Post
-  #   include ActiveModel::Model
-
-  #   attr_accessor :amenities
-  # end
-
-  # class Amenity
-  #   include ActiveModel::Model
-
-  #   attr_accessor :amenity_name
-  # end
-
   def new
-    @user = User.find(1)
-    @host = Host.find(1)
-    # amenities = [Amenity.new(amenity_name: 'Heating'), Amenity.new(amenity_name: 'Kitchen'), Amenity.new(amenity_name: 'TV')]
+    @host = Host.where(user_id: current_user.id)
     @room = Room.new
-    # @form = Post.new(amenities: amenities)
   end
 
-  # def confirm
-  #   p post_parms
-  # end
-
   def create
-
+    @host = Host.where(user_id: current_user.id)
+    @room = Room.new(room_params)
+    if @room.save
+    else
+      render new_room_path
+    end
   end
 
   def edit
@@ -46,11 +32,9 @@ class RoomsController < ApplicationController
   end
   private
   def room_params
-      params.require(:room).permit().merge(user_id: current_user.id)
+      params.require(:room).permit(:title, :price, :cleaning_cost, :vat_jst, :location, :description, :hm_rooms, :hm_bets, :hm_bathrooms, :host_id, :roomtype, amenity:[], facility:[], rules:[], meal_time_of_day:[]).merge(user_id: current_user.id)
   end
-  # def post_parms
-  #   params.require(:rooms_controller_post).permit(amenities: [])
-  # end
+
   def move_to_index
       redirect_to action: :index unless user_signed_in?
   end

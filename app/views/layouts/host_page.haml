@@ -43,6 +43,24 @@
                 = link_to '#' do
                   = image_tag("user_pic-50x50.png")
               .menu_list
+                .user_menu{style:"display: none;"}
+                  %ul
+                    %li
+                      .menu_text
+                        .menu_text_content
+                          = link_to edit_user_path(id: current_user.id) do
+                            Edit profile
+                      .menu_text
+                        .menu_text_content
+                          = link_to host_path(Host.where(user_id: current_user.id).ids[0]) do
+                            Host profile
+                      .menu_text
+                        .menu_text_content
+                          = link_to destroy_user_session_path do
+                            Log out
+                %svg{ class:"hat", style:"display: none;"}
+                  %path{ class:"white", d:"M0,10 20,10 10,0z"}
+                  %path{ class:"gray_line", d:"M0,10 10,0 20,10"}
           - else
             %li.text_holizon
               .text_vertical
