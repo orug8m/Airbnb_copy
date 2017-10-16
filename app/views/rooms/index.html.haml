@@ -1,43 +1,61 @@
 .content.clearfix
   .main_content
-    %h3.toppage Just booked in Tokyo
-    .experiences
-      .experience_box
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-    %h3.toppage Just booked in Taiwan
-    .experiences
-      .experience_box
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
+    .left_content
+      %h3.toppage Just booked in Tokyo
+      .experiences
+        .experience_box
+          .experience
+            .ex_image
+            .subtitle
+              .genre SAKE TASTING ·
+              .currency ¥
+              .price 8,000
+            .introtitle Learn and Taste MANY Sake with an Expert
+          .experience
+            .ex_image
+            .subtitle
+              .genre SAKE TASTING ·
+              .currency ¥
+              .price 8,000
+            .introtitle Learn and Taste MANY Sake with an Expert
+          .experience
+            .ex_image
+            .subtitle
+              .genre SAKE TASTING ·
+              .currency ¥
+              .price 8,000
+            .introtitle Learn and Taste MANY Sake with an Expert
+          .experience
+            .ex_image
+            .subtitle
+              .genre SAKE TASTING ·
+              .currency ¥
+              .price 8,000
+            .introtitle Learn and Taste MANY Sake with an Expert
+      %h3.toppage Just booked in Taiwan
+      .experiences
+        .experience_box
+          .experience
+            .ex_image
+            .subtitle
+              .genre SAKE TASTING ·
+              .currency ¥
+              .price 8,000
+            .introtitle Learn and Taste MANY Sake with an Expert
+    .right_content
+      .map_content
+        #map
+          :javascript
+            function initMap() {
+              var munchen = {lat: 48.137154, lng: 11.576124};
+              var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: munchen
+              });
+              var marker = new google.maps.Marker({
+                position: munchen,
+                map: map
+              });
+            }
+          %script{async: :defer, src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyA2C1ToN60wQB0sNEuL25b4tJQPm0C7nJc&callback=initMap"}
+

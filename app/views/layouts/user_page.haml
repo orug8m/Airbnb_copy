@@ -52,8 +52,8 @@
                             Edit profile
                       .menu_text
                         .menu_text_content
-                          = link_to host_path(Host.where(user_id: current_user.id).ids[0]) do
-                            Host profile
+                          / = link_to host_path(Host.where(user_id: current_user.id).ids[0]) do
+                          /   Host profile
                       .menu_text
                         .menu_text_content
                           = link_to destroy_user_session_path do
