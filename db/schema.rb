@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014004855) do
+ActiveRecord::Schema.define(version: 20171017060701) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "last_name",                     null: false
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 20171014004855) do
     t.datetime "updated_at",                    null: false
     t.string   "native_language",               null: false
     t.string   "user_id",                       null: false
+  end
+
+  create_table "room_books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                    null: false
+    t.integer  "room_id",                    null: false
+    t.datetime "start_date",                 null: false
+    t.datetime "end_date",                   null: false
+    t.integer  "total_guests",               null: false
+    t.text     "requests",     limit: 65535
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["room_id"], name: "index_room_books_on_room_id", using: :btree
+    t.index ["user_id"], name: "index_room_books_on_user_id", using: :btree
   end
 
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -86,4 +99,6 @@ ActiveRecord::Schema.define(version: 20171014004855) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "room_books", "rooms"
+  add_foreign_key "room_books", "users"
 end

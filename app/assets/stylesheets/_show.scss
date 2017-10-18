@@ -1,12 +1,16 @@
 .show_top {
   box-sizing: border-box;
   width: 100%;
-  min-width: 744px;
-  height: 702px;
+  // min-height: 600px;
+  // max-height: 500px;
   position: relative;
+  &:before{
+    content: "";
+    display: block;
+    padding-top: 66.7%;
+  }
   &_image{
     width: 100%;
-    height: 702px;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -23,39 +27,118 @@
 }
 .show_content{
   width: 1080px;
+  margin: 24px 0;
   padding: 0 24px;
   &_main{
     margin: 0 auto;
     &_left{
       width: 58%;
       float: left;
-      .nav{
-        padding: 0 8px;
-      }
+      // .nav{
+      //   width: 100%;
+      //   padding: 0 8px;
+      // }
       .title_area{
+        width: 80%;
         padding: 0 8px;
-        .title{
-          margin: 24px 0 20px 0;
+        margin: 24px 0 20px 0;
+        display: inline-block;
+        h2{
+          font-weight: 700;
+          color: #484848;
+          font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+          margin: 0px;
+          word-wrap: break-word;
+          font-size: 36px;
+          line-height: 40px;
+          letter-spacing: -0.6px;
+          padding-top: 6px;
+          padding-bottom: 6px;
+          &.title{
+            width: 100%;
+            display: inline-block;
+            float: left;
+          }
         }
         .sub_title{
-          .roomtype {}
-          span {}
-          .location{}
+          width: 100%;
+          display: inline-block;
+          float: left;
+          font-size: 17px;
+          font-weight: 300;
+          letter-spacing: 0.2px;
+          line-height: 22px;
+          .roomtype {
+            float: left;
+          }
+          span {
+            float: left;
+          }
+          .location{
+            float: left;
+          }
         }
-        .host_image{
-          .host_image_box{
-            .host_image_icon{
-              .host_image_icon_badge{}
-              .host_image_icon_round{}
+      }
+      .host_image{
+        margin-top: 24px;
+        float: right;
+        .host_image_box{
+          margin-top: 12px;
+          .host_image_icon{
+            margin-bottom: 6px;
+            .host_image_icon_badge{
+              width: 65px;
+              display: inline-block;
+              position: relative;
+              .host_image_icon_round{
+                background-position: center center;
+                background-repeat: no-repeat;
+                margin: 5px;
+                width: 64px;
+                height: 64px;
+                background-size: cover;
+                margin: 0 auto;
+                float: left;
+                img{
+                  height: 64px;
+                  vertical-align: middle;
+                  border: 0;
+                }
+              }
+              .host_image_name{
+                text-align: center;
+                display: inline-block;
+                width: 64px;
+                margin: 0 auto;
+                float: left;
+                span{
+                }
+              }
             }
           }
         }
       }
       .room_data{
+        width: 100%;
+        display: inline-block;
+        padding: 8px;
         .room_data_set{
+          width: 100%;
           .room_data_set_content{
+            width: 100%;
             .icon_box{
-              .icon{}
+              width: 100%;
+              li{
+                float: left;
+                .icon{
+                  padding-right: 8px;
+                  float: left;
+                }
+                .comment{
+                  margin-right: 20px;
+                  float: left;
+                }
+              }
             }
             .host_image_name{}
           }
@@ -78,13 +161,110 @@
           }
           .form{
             position: relative;
-            width: 100%;
+            padding: 20px;
             .form_inputarea{
-              .form_inputarea_checkin{
-                .form_inputarea_checkin_left{}
-                .form_inputarea_checkin_right{}
+              width: 100%;
+              .form_inputarea_check{
+                width: 100%;
+                padding: 8px 0 8px 0;
+                display: inline-block;
+                .form_inputarea_check_half{
+                  width: 50%;
+                  float: left;
+                  .text{
+
+                  }
+                  .inputarea{
+                    width: 100%;
+                    margin-bottom: 0;
+                    border: 0.5px solid $light_gray;
+                    input{
+                      width: 100%;
+                      font-size: 15px;
+                      line-height: 18px;
+                      letter-spacing: 0.2px;
+                      color: $gray;
+                      font-weight: normal;
+                      margin: 0;
+                      padding: 7px 0 7px 5px;
+                      background: none;
+                      border: none;
+                      border-radius: 0;
+                      outline: none;
+                      -webkit-appearance: none;
+                      -moz-appearance: none;
+                      appearance: none;
+                    }
+                  }
+                }
               }
-              .form_inputarea_guests{}
+              .form_inputarea_guests{
+                width: 100%;
+                float: left;
+                padding: 8px 0 8px 0;
+                display: inline-block;
+                .text{
+
+                }
+                #input_guests_area{
+                  width: 100%;
+                  margin-bottom: 0;
+                  border: 0.5px solid $light_gray;
+                  input{
+                    width: 100%;
+                    font-size: 15px;
+                    line-height: 18px;
+                    letter-spacing: 0.2px;
+                    color: $gray;
+                    font-weight: normal;
+                    margin: 0;
+                    padding: 7px 0 7px 5px;
+                    background: none;
+                    border: none;
+                    border-radius: 0;
+                    outline: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                  }
+                }
+                #selectarea{
+
+                  #select_area_contents{
+                    display: none;
+                    z-index: 15;
+                    height: 300px;
+                    width: 300px;
+                    position: absolute;
+                    background-color: white;
+                    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.07);
+                    -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.15),0 0 0 1px rgba(0,0,0,0.07);
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.07);
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                    .adults{
+                      .text{
+
+                      }
+                      .plus{
+
+                      }
+                      .minus{
+
+                      }
+                    }
+                    .children{
+                      .text{}
+                      .text_comment{}
+                      .plus{}
+                      .minus{}
+                    }
+                    .comment{}
+                    .close{}
+                  }
+                }
+              }
             }
             .btn_area{
               width: 60%;

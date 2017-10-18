@@ -1,47 +1,90 @@
 .show_top.clearfix
-  .show_top_image
+  .show_top_image.clearfix
 .show_content.clearfix
   .show_content_main
     .show_content_main_left
       .nav
       .title_area
-        %h1.title.heavy Secluded Intown Treehouse
+        %h2.title.heavy Secluded Intown Treehouse
         .sub_title
           .roomtype Entire treehouse
-          %span •
+          %span ·
           .location Atranta
-        .host_image
-          .host_image_box
-            .host_image_icon
-              .host_image_icon_badge
-              .host_image_icon_round
-                = image_tag("host.png")
+      .host_image
+        .host_image_box
+          .host_image_icon
+            .host_image_icon_badge
+              .host_image_icon_round.media-photo.media-round
+                = image_tag("test.jpeg")
+              .host_image_name
+                %span Katie And Peter
       .room_data
         .room_data_set
           .room_data_set_content
             .icon_box
-              .icon
-            .host_image_name
+              %li
+                .icon
+                  %i{ class:"fa fa-users", aria:{hidden:"true"}}
+                .comment
+                  %span 2 guets
+              %li
+                .icon
+                  %i{ class:"fa fa-home", aria:{hidden:"true"}}
+                .comment
+                  %span 1 bet room
+              %li
+                .icon
+                  %i{ class:"fa fa-bed", aria:{hidden:"true"}}
+                .comment
+                  %span 1 bet
+              %li
+                .icon
+                  %i{ class:"fa fa-bath", aria:{hidden:"true"}}
+                .comment
+                  %span 1 bath
       .booking_form
-        .booking_form_box
-          .price
-            .price_content ¥ 43,192per night
-          .form
-            .form_inputarea
-              .form_inputarea_checkin
-                .form_inputarea_checkin_left
-                .form_inputarea_checkin_right
-              .form_inputarea_guests
-            .btn_area
-              .btn.btn-primary.btn-large.btn-block Request to Book
+        - form_for [@room, @room.room_books.new] do |f|
+          = f.text_field :room_id, type:"hidden", value:"#{@room.id}"
+          .booking_form_box
+            .price
+              .price_content ¥ 43,192per night
+            .form
+              .form_inputarea
+                .form_inputarea_check
+                  .form_inputarea_check_half
+                    .text Check In
+                    .inputarea
+                      = f.text_field :start_date, class:"datepicker"
+                  .form_inputarea_check_half
+                    .text Check Out
+                    .inputarea
+                      = f.text_field :end_date, class:"datepicker"
+                .form_inputarea_guests
+                  .text Guests
+                  #input_guests_area
+                    %input{class:"input_guests"}
+                    #selectarea
+                      #select_area_contents
+                        .adults
+                          .text
+                          .plus
+                          .minus
+                        .children
+                          .text
+                          .text_comment
+                          .plus
+                          .minus
+                        .comment 2 guests maximum. Infants don’t count toward the number of guests.
+                        .close
+              .btn_area
+                = f.submit :"Request to Book", class: "btn btn-primary btn-large btn-block"
               .comment You won’t be charged yet
-            .host_title
-              .grayline
-              .textarea
-                .text
-                  .text_upper.heavy This home is on people’s minds.
-                  .text_bottom It’s been viewed 500+ times in the past week.
+              .host_title
+                .grayline
+                .textarea
+                  .text
+                    .text_upper.heavy This home is on people’s minds.
+                    .text_bottom It’s been viewed 500+ times in the past week.
           .report
       .descriptions
-
     .show_content_main_right
