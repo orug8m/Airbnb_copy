@@ -43,7 +43,7 @@
                 .comment
                   %span 1 bath
       .booking_form
-        - form_for [@room, @room.room_books.new] do |f|
+        = form_for [@room, @room.room_books.new] do |f|
           = f.text_field :room_id, type:"hidden", value:"#{@room.id}"
           .booking_form_box
             .price
