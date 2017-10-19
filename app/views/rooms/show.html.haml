@@ -53,12 +53,16 @@
                 .form_inputarea_check
                   .form_inputarea_check_half
                     .text Check In
-                    .inputarea
-                      = f.text_field :start_date, class:"datepicker"
+                    .inputarea#datetimepicker6
+                      = f.text_field :start_date, class:"datepicker form-control"
+                      %span{class:"input-group-addon"}
+                        %span{class:"glyphicon glyphicon-calendar"}
                   .form_inputarea_check_half
                     .text Check Out
-                    .inputarea
-                      = f.text_field :end_date, class:"datepicker"
+                    .inputarea#datetimepicker7
+                      = f.text_field :end_date, class:"datepicker form-control"
+                      %span{class:"input-group-addon"}
+                        %span{class:"glyphicon glyphicon-calendar"}
                 .form_inputarea_guests
                   .text Guests
                   #input_guests_area
