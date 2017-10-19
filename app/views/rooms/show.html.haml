@@ -54,22 +54,22 @@
                   .form_inputarea_check_half
                     .text Check In
                     .inputarea
-                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD 15:00:00'}, class:"datepicker form-control", id:"datetimepicker6", placeholder:"YYYY-MM-DD"
+                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD 15:00:00'}, class:"datepicker form-control", id:"reserve-start-date", placeholder:"YYYY-MM-DD"
                   .form_inputarea_check_half
                     .text Check Out
                     .inputarea
-                      = f.text_field :end_date, data: { date_format: 'YYYY-MM-DD 11:00:00'}, class:"datepicker form-control", id:"datetimepicker7", placeholder:"YYYY-MM-DD"
+                      = f.text_field :end_date, data: { date_format: 'YYYY-MM-DD 11:00:00'}, class:"datepicker form-control", id:"reserve-end-date", placeholder:"YYYY-MM-DD", autocomplete:"off"
                 :javascript
                   $(function () {
-                      $('#datetimepicker6').datetimepicker();
-                      $('#datetimepicker7').datetimepicker({
+                      $('#reserve-start-date').datetimepicker();
+                      $('#reserve-end-date').datetimepicker({
                           useCurrent: false
                       });
-                      $("#datetimepicker6").on("dp.change", function (e) {
-                          $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                      $("#reserve-start-date").on("dp.change", function (e) {
+                          $('#reserve-end-date').data("DateTimePicker").minDate(e.date);
                       });
-                      $("#datetimepicker7").on("dp.change", function (e) {
-                          $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                      $("#reserve-end-date").on("dp.change", function (e) {
+                          $('#reserve-start-date').data("DateTimePicker").maxDate(e.date);
                       });
                   });
                 .form_inputarea_guests
