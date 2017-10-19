@@ -5,11 +5,11 @@
     .show_content_main_left
       .nav
       .title_area
-        %h2.title.heavy Secluded Intown Treehouse
+        %h2.title.heavy #{@room.title}
         .sub_title
-          .roomtype Entire treehouse
+          .roomtype #{@room.roomtype}
           %span ·
-          .location Atranta
+          .location #{@room.location}
       .host_image
         .host_image_box
           .host_image_icon
@@ -17,7 +17,7 @@
               .host_image_icon_round.media-photo.media-round
                 = image_tag("test.jpeg")
               .host_image_name
-                %span Katie And Peter
+                %span #{@room.host.last_name}#{@room.host.first_name}
       .room_data
         .room_data_set
           .room_data_set_content
@@ -26,39 +26,39 @@
                 .icon
                   %i{ class:"fa fa-users", aria:{hidden:"true"}}
                 .comment
-                  %span 2 guets
+                  %span #{@room.hm_bets} guets
               %li
                 .icon
                   %i{ class:"fa fa-home", aria:{hidden:"true"}}
                 .comment
-                  %span 1 bet room
+                  %span #{@room.hm_rooms} bet room
               %li
                 .icon
                   %i{ class:"fa fa-bed", aria:{hidden:"true"}}
                 .comment
-                  %span 1 bet
+                  %span #{@room.hm_bets} bet
               %li
                 .icon
                   %i{ class:"fa fa-bath", aria:{hidden:"true"}}
                 .comment
-                  %span 1 bath
+                  %span #{@room.hm_bathrooms} bath
       .booking_form
         = form_for [@room, @room.room_books.new] do |f|
           = f.text_field :room_id, type:"hidden", value:"#{@room.id}"
           .booking_form_box
             .price
-              .price_content ¥ 43,192per night
+              .price_content ¥ #{@room.price} per night
             .form
               .form_inputarea
                 .form_inputarea_check
                   .form_inputarea_check_half
                     .text Check In
                     .inputarea
-                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD'}, class:"datepicker form-control", id:"datetimepicker6", placeholder:"YYYY-MM-DD"
+                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD 15:00:00'}, class:"datepicker form-control", id:"datetimepicker6", placeholder:"YYYY-MM-DD"
                   .form_inputarea_check_half
                     .text Check Out
                     .inputarea
-                      = f.text_field :end_date, data: { date_format: 'YYYY-MM-DD'}, class:"datepicker form-control", id:"datetimepicker7", placeholder:"YYYY-MM-DD"
+                      = f.text_field :end_date, data: { date_format: 'YYYY-MM-DD 11:00:00'}, class:"datepicker form-control", id:"datetimepicker7", placeholder:"YYYY-MM-DD"
                 :javascript
                   $(function () {
                       $('#datetimepicker6').datetimepicker();
@@ -74,10 +74,10 @@
                   });
                 .form_inputarea_guests
                   .text Guests
-                  #input_guests_area
-                    %input{class:"input_guests"}
-                    #selectarea
-                      #select_area_contents
+                  .input_guests_area
+                    = f.text_field :total_guests, class:"input_guests", placeholder:"How many guests?"
+                    .selectarea
+                      .select_area_contents
                         %li.list_box
                           .text_area
                             .text Adults
