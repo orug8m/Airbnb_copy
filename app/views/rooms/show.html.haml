@@ -53,36 +53,71 @@
                 .form_inputarea_check
                   .form_inputarea_check_half
                     .text Check In
-                    .inputarea#datetimepicker6
-                      = f.text_field :start_date, class:"datepicker form-control"
-                      %span{class:"input-group-addon"}
-                        %span{class:"glyphicon glyphicon-calendar"}
+                    .inputarea
+                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD'}, class:"datepicker form-control", id:"datetimepicker6", placeholder:"YYYY-MM-DD"
                   .form_inputarea_check_half
                     .text Check Out
-                    .inputarea#datetimepicker7
-                      = f.text_field :end_date, class:"datepicker form-control"
-                      %span{class:"input-group-addon"}
-                        %span{class:"glyphicon glyphicon-calendar"}
+                    .inputarea
+                      = f.text_field :end_date, data: { date_format: 'YYYY-MM-DD'}, class:"datepicker form-control", id:"datetimepicker7", placeholder:"YYYY-MM-DD"
+                :javascript
+                  $(function () {
+                      $('#datetimepicker6').datetimepicker();
+                      $('#datetimepicker7').datetimepicker({
+                          useCurrent: false
+                      });
+                      $("#datetimepicker6").on("dp.change", function (e) {
+                          $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                      });
+                      $("#datetimepicker7").on("dp.change", function (e) {
+                          $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                      });
+                  });
                 .form_inputarea_guests
                   .text Guests
                   #input_guests_area
                     %input{class:"input_guests"}
                     #selectarea
                       #select_area_contents
-                        .adults
-                          .text
-                          .plus
-                          .minus
-                        .children
-                          .text
-                          .text_comment
-                          .plus
-                          .minus
+                        %li.list_box
+                          .text_area
+                            .text Adults
+                          .button_area
+                            .plus_minus_button
+                              .symbol_plus_minus
+                                %button{class:"green_circle"}
+                                  %span{class:"green_symbol"}
+                                    %svg{ viewBox:"0 0 24 24", role:"img", aria:{label:"add"}, focusable:"false", style:"height: 1em; width: 1em; display: block; fill: currentcolor;"}
+                                      %rect{ width:"12", height:"2", x:"6", y:"11", rx:"1"}
+                            .plus_minus_button
+                              .symbol_plus_minus
+                                %button{class:"green_circle"}
+                                  %span{class:"green_symbol"}
+                                    %svg{ viewBox:"0 0 24 24", role:"img", aria:{label:"add"}, focusable:"false", style:"height: 1em; width: 1em; display: block; fill: currentcolor;"}
+                                      %rect{ width:"12", height:"2", x:"6", y:"11", rx:"1"}
+                                      %rect{ width:"2", height:"12", x:"11", y:"6", rx:"1"}
+                        %li.list_box
+                          .text_area
+                            .text Children
+                            .text_comment
+                          .button_area
+                            .plus_minus_button
+                              .symbol_plus_minus
+                                %button{class:"green_circle"}
+                                  %span{class:"green_symbol"}
+                                    %svg{ viewBox:"0 0 24 24", role:"img", aria:{label:"add"}, focusable:"false", style:"height: 1em; width: 1em; display: block; fill: currentcolor;"}
+                                      %rect{ width:"12", height:"2", x:"6", y:"11", rx:"1"}
+                            .plus_minus_button
+                              .symbol_plus_minus
+                                %button{class:"green_circle"}
+                                  %span{class:"green_symbol"}
+                                    %svg{ viewBox:"0 0 24 24", role:"img", aria:{label:"add"}, focusable:"false", style:"height: 1em; width: 1em; display: block; fill: currentcolor;"}
+                                      %rect{ width:"12", height:"2", x:"6", y:"11", rx:"1"}
+                                      %rect{ width:"2", height:"12", x:"11", y:"6", rx:"1"}
                         .comment 2 guests maximum. Infants don’t count toward the number of guests.
                         .close
               .btn_area
                 = f.submit :"Request to Book", class: "btn btn-primary btn-large btn-block"
-              .comment You won’t be charged yet
+                .comment You won’t be charged yet
               .host_title
                 .grayline
                 .textarea

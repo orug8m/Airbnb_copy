@@ -43,8 +43,10 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'momentjs-rails', '>= 2.9.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
