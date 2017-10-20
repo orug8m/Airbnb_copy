@@ -1,8 +1,7 @@
 .show_top {
   box-sizing: border-box;
   width: 100%;
-  // min-height: 600px;
-  // max-height: 500px;
+  max-width: 1080px;
   position: relative;
   &:before{
     content: "";
@@ -172,7 +171,7 @@
                   width: 50%;
                   float: left;
                   .text{
-
+                    display: inline-block;
                   }
                   .inputarea{
                     width: 100%;
@@ -195,6 +194,9 @@
                       -moz-appearance: none;
                       appearance: none;
                     }
+                    #selectarea{
+
+                    }
                   }
                 }
               }
@@ -206,7 +208,7 @@
                 .text{
 
                 }
-                #input_guests_area{
+                .input_guests_area{
                   width: 100%;
                   margin-bottom: 0;
                   border: 0.5px solid $light_gray;
@@ -228,13 +230,13 @@
                     appearance: none;
                   }
                 }
-                #selectarea{
-
-                  #select_area_contents{
+                .selectarea{
+                  .select_area_contents{
                     display: none;
                     z-index: 15;
                     height: 300px;
                     width: 300px;
+                    padding: 10px 0;
                     position: absolute;
                     background-color: white;
                     -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.07);
@@ -243,22 +245,42 @@
                     -webkit-border-radius: 3px;
                     -moz-border-radius: 3px;
                     border-radius: 3px;
-                    .adults{
-                      .text{
-
+                    .list_box{
+                      margin: 16px 0;
+                      .text_area{
+                        .text {
+                          width: 120px;
+                          vertical-align: middle;
+                        }
                       }
-                      .plus{
-
+                      .button_area{
+                        text-align: left;
+                        .plus_minus_button{
+                          .symbol_plus_minus {
+                            .green_circle{
+                              display: inline-block;
+                              cursor: pointer;
+                              border-radius: 50%;
+                              text-align: center;
+                              line-height: 1;
+                              position: relative;
+                              border: 2px solid transparent;
+                              background: transparent;
+                              border-color: #008489;
+                              width: 32px;
+                              height: 32px;
+                              border-width: 1px;
+                              .green_symbol{
+                                display: inline-block;
+                                position: absolute;
+                                top: 50%;
+                                color: #008489;
+                                font-size: 16px;
+                              }
+                            }
+                          }
+                        }
                       }
-                      .minus{
-
-                      }
-                    }
-                    .children{
-                      .text{}
-                      .text_comment{}
-                      .plus{}
-                      .minus{}
                     }
                     .comment{}
                     .close{}
