@@ -74,14 +74,3 @@
       .content.clearfix
         .main_content
           %h3.toppage Your Rooms, Experiences, Rooms
-          .experiences
-            .experience_box
-              - @rooms.each do |hostproduct|
-                .experience
-                  = link_to room_path(hostproduct.id) do
-                    .ex_image
-                    .subtitle
-                      .genre #{hostproduct.roomtype}
-                      .currency _¥
-                      .price #{number_with_delimiter(hostproduct.price)}
-                    .introtitle #{hostproduct.title[0, 23]}...
