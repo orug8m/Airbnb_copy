@@ -611,6 +611,18 @@
               padding: 9px 6px 8px 6px;
               float: left;
             }
+            &_textarea{
+              width: 75%;
+              float: left;
+              padding: 0 6px;
+              .user_textarea{
+                display: block;
+                padding: 8px 10px;
+                width: 80%;
+                height: 81px;
+                border: 1px solid $gray76;
+              }
+            }
             &_input{
               width: 75%;
               float: left;
