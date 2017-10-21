@@ -16,7 +16,6 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.string :rules
       t.string :meal_time_of_day
       t.integer :host_id,null: false, foreign_key: true
-      t.integer :user_id, null: false, foreign_key: true
       t.timestamps
     end
   end

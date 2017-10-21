@@ -18,6 +18,7 @@ class HostsController < ApplicationController
   end
 
   def show
+    @rooms = Room.where(host_id: Host.where(user_id: current_user.id).ids)
   end
 
   def edit

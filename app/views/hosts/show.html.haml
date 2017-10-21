@@ -71,4 +71,17 @@
             .user_content_right_contents_content_list_input
               %input{class:"user_inputbox", autocomplete: "off"}
                 .comment Airbnb is built on relationships. Help other people get to know you. Tell them about the things you like: What are 5 things you can’t live without? Share your favorite travel destinations, books, movies, shows, music, food. Tell them what it’s like to have you as a guest or host: What’s your style of traveling? Of Airbnb hosting? Tell them about you: Do you have a life motto?
-
+      .content.clearfix
+        .main_content
+          %h3.toppage Your Rooms, Experiences, Rooms
+          .experiences
+            .experience_box
+              - @rooms.each do |hostproduct|
+                .experience
+                  = link_to room_path(hostproduct.id) do
+                    .ex_image
+                    .subtitle
+                      .genre #{hostproduct.roomtype}
+                      .currency _¥
+                      .price #{number_with_delimiter(hostproduct.price)}
+                    .introtitle #{hostproduct.title[0, 23]}...
