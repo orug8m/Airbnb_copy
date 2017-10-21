@@ -8,9 +8,6 @@
 
 ### Association
 
- - has_many :rooms
- - has_many :experiences
- - has_many :restaurants
 
  ## rooms table
 
@@ -31,16 +28,13 @@
   |rules|string|------|
   |meal_time_of_day|string|------|
   |host_id|integer|null: false, foreign_key: true|
-  |user_id|integer|null: false, foreign_key: true|
   |room_image_id|integer|foreign_key: true|
 
 ### Association
 
- - belongs_to :share
  - belongs_to :host
  - has_many :room_images
- - has_many :users, through: :users_rooms
- - has_many :users_rooms
+ - has_many :room_books
 
  ## experiences table
 
@@ -53,17 +47,13 @@
   |description|text|null: false|
   |category|string|null: false|
   |host_id|integer|null: false, foreign_key: true|
-  |user_id|integer|null: false, foreign_key: true|
   |experience_image_id|integer|foreign_key: true|
 
 ### Association
 
- - belongs_to :share
  - belongs_to :host
  - has_many :experience_images
- - has_many :users, through: :users_experiences
- - has_many :users_experiences
-
+ - has_many :experience_books
  ## restaurants table
 
   |Column|Type|Options|
@@ -76,16 +66,13 @@
   |cuisine|string|null: false|
   |time_of_day|string|null: false|
   |host_id|integer|null: false, foreign_key: true|
-  |user_id|integer|null: false, foreign_key: true|
   |restaurant_image_id|integer|foreign_key: true|
 
 ### Association
 
- - belongs_to :share
  - belongs_to :host
  - has_many :restaurant_images
- - has_many :users, through: :users_restaurants
- - has_many :users_restaurants
+ - has_many :restaurants_books
 
  ## users table
 
@@ -108,12 +95,6 @@
 
 ### Association
 
- - has_many :rooms, through: :users_rooms
- - has_many :users_rooms
- - has_many :experiences, through: :users_experiences
- - has_many :users_experiences
- - has_many :restaurants, through: :users_restaurants
- - has_many :users_restaurants
  - has_many :room_books
  - has_many :experience_books
  - has_many :restaurant_books
@@ -187,7 +168,7 @@
 
 ### Association
  - belongs_to :room
- - has_many :users
+ - belongs_to :user
 
  ## experience_books table
 
@@ -196,12 +177,12 @@
   |total_guests|integer|null: false|
   |date|integer|null: false|
   |requests|text|------|
-  |room_id|references|null: false, foreign_key: true|
+  |experience_id|references|null: false, foreign_key: true|
   |user_id|references|null: false, foreign_key: true|
 
 ### Association
  - belongs_to :experience
- - has_many :users
+ - belongs_to :user
 
  ## restaurant_books table
 
@@ -210,42 +191,9 @@
   |total_guests|integer|null: false|
   |date|integer|null: false|
   |requests|text|------|
-  |room_id|references|null: false, foreign_key: true|
+  |restaurant_id|references|null: false, foreign_key: true|
   |user_id|references|null: false, foreign_key: true|
 
 ### Association
  - belongs_to :restaurant
- - has_many :users
-
- ## users_rooms table (intermidiate)
-
- |Column|Type|Option|
- |------|------|------|
- |user_id|references|null: false, foreign_key: true|
- |room_id|references|null: false, foreign_key: true|
-
-### Association
  - belongs_to :user
- - belongs_to :room
-
- ## users_experiences table (intermidiate)
-
- |Column|Type|Option|
- |------|------|------|
- |user_id|references|null: false, foreign_key: true|
- |experience_id|references|null: false, foreign_key: true|
-
-### Association
- - belongs_to :user
- - belongs_to :experience
-
- ## users_restaurants table (intermidiate)
-
- |Column|Type|Option|
- |------|------|------|
- |user_id|references|null: false, foreign_key: true|
- |restaurant_id|references|null: false, foreign_key: true|
-
-### Association
- - belongs_to :user
- - belongs_to :restaurant
