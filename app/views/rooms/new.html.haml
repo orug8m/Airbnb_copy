@@ -107,7 +107,7 @@
                 = f.check_box(:meal_time_of_day, {multiple:'true', id:"room_meal_time_of_day_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
                 = f.label :"meal_time_of_day_#{flag}", flag
               .comment
-          = f.text_field :"host_id", type:"hidden", value:"#{@host.ids[0]}"
+          = f.text_field :"host_id", type:"hidden", value:"#{@host.ids}"
           .user_content_right_contents_content_list
             .user_content_right_contents_content_list_title
             .user_content_right_contents_content_list_input
