@@ -1,3 +1,55 @@
+body {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: $gray;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4, h5, h6{
+    line-height: 1.1;
+    text-rendering: optimizelegibility;
+}
+
+h1 {
+    font-size: 44px;
+    font-weight: normal;
+}
+
+h2 {
+    font-weight: 700;
+    color: $gray;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    margin: 0px;
+    word-wrap: break-word;
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+li{
+  list-style-type: none;
+}
+
+a {
+  &:link {
+    text-decoration: none;
+  }
+
+  &:visited   {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+}
 .clearfix {
     *zoom: 1;
     &:after {
@@ -9,6 +61,12 @@
     }
 }
 
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: white\0;
+}
 .italic {
   font-style: italic;
 }
@@ -31,7 +89,9 @@
 .heavy{
   font-weight: 500;
 }
-
+.bold{
+  font-weight: bold;
+}
 .btn-primary {
     border-color: $orange;
     background-color: $orange;
@@ -59,12 +119,6 @@
     cursor: pointer;
 }
 
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: white\0;
-}
 .cross {
   cursor: pointer;
   background-color: transparent;
@@ -80,72 +134,8 @@ select {
   line-height: 0;
 }
 
-body {
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.43;
-    color: $gray;
-    background-color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-h1, h2, h3, h4, h5, h6{
-    line-height: 1.1;
-    text-rendering: optimizelegibility;
-}
-
-h1 {
-    font-size: 44px;
-    font-weight: normal;
-}
-
-.bold{
-  font-weight: bold;
-}
-
-h2 {
-    font-weight: 700;
-    color: $gray;
-    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-    margin: 0px;
-    word-wrap: break-word;
-    font-size: 28px;
-    line-height: 32px;
-    letter-spacing: -0.6px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-li{
-  list-style-type: none;
-}
-
-a {
-  &:link {
-    text-decoration: none;
-  }
-
-  &:visited   {
-    text-decoration: none;
-  }
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:active {
-    text-decoration: none;
-  }
-}
 .space36{
   margin-top: 36px;
-}
-
-input#room_amenity{
-}
-
-.checkbox{
-
 }
 .media-photo {
   -webkit-backface-visibility: hidden;
@@ -163,3 +153,4 @@ input#room_amenity{
     border: 2px solid #fff;
   }
 }
+

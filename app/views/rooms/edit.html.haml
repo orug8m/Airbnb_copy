@@ -1,0 +1,117 @@
+.header_bottom2
+  .header_bottom2_invitephoto
+    .header_photo_above
+      .page-container-responsive
+        .floting_text
+          .floting_text_field
+            .floting_text_field_box
+              .floting_text_field_box_inside
+                .catchcopy
+                  %h1.white.heavy.bold Let's share your Room, and host!
+                %p.white.space36
+                .space36
+.user_wrap.clearfix
+  .user_content
+    .user_content_right
+      - if @room.errors.any?
+        .form__errors
+          %h2= "#{@room.errors.count}件のエラーが発生しました。"
+          %ul
+            - @room.errors.full_messages.each do |msg|
+              %li= msg
+      .user_content_right_contents
+        .user_content_right_contents_title Required
+        .user_content_right_contents_content
+        = form_for(@room, url: {action: :update}, method: :patch, type: :hidden) do |f|
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Title
+            .user_content_right_contents_content_list_input
+              = f.text_field :title, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off", value:"#{@current_room_data.title}"
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Room type
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :roomtype, [["Room type", ""], ["Entire home", "Entire home"], ["Private room", "Private room"], ["Shared room", "Shared room"]], {}, {class: 'select_gender'}
+                %span{class:"arrowtobottom"}
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title price
+            .user_content_right_contents_content_list_input
+              = f.number_field :price, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off", value:"#{@current_room_data.price}"
+              %span{class:"arrowtobottom"}
+            .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title cleaning cost
+            .user_content_right_contents_content_list_input
+              = f.number_field :cleaning_cost, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off", value:"#{@current_room_data.cleaning_cost}"
+              %span{class:"arrowtobottom"}
+            .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Input vat rate.
+            .user_content_right_contents_content_list_input
+              = f.number_field :vat_jst, id:"", class:"user_inputbox", placeholder:"Set title! What do you want y to share?", autocomplete: "off", value:"#{@current_room_data.vat_jst}"
+              %span{class:"arrowtobottom"}
+            .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Place
+            .user_content_right_contents_content_list_input
+              = f.text_field :location, id:"", class:"user_inputbox", placeholder:"your location", autocomplete: "off"
+              .comment This is only shared once you have a confirmed booking with another Airbnb user. This is how we can all get in touch.
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title Explain your room, all about!
+            .user_content_right_contents_content_list_textarea
+              = f.text_area :description, id:"", class:"user_textarea", placeholder:"", autocomplete: "off", value:"#{@current_room_data.description}"
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title How many rooms sharing?
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :hm_rooms, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], {}, {class: 'select_birthday'}
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title How many bets?
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :hm_bets, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], {}, {class: 'select_birthday'}
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title How many bathrooms?
+            .user_content_right_contents_content_list_input
+              .select_box
+                = f.select :hm_bathrooms, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], {}, {class: 'select_birthday'}
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Heating', 'Kitchen', 'TV', 'Wireless Internet', 'Air conditioning','Buzzer/wireless intercom', 'Doorman', 'Dryer', 'Family/kid friendly', 'Hair dryer', 'Hangers', 'Indoor fireplace', 'Iron', 'Laptop friendly workspace', 'Lock on bedroom door', 'Self Check-In', 'Shampoo', 'Washer'].each do |flag|
+                = f.check_box(:amenity, {multiple:'true', id:"room_amenity_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"amenity_#{flag}", flag
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Elevator', 'Free parking on premises', 'Pool', 'Wheelchair accessible', 'Gym', 'Hot tub'].each do |flag|
+                = f.check_box(:facility, {multiple:'true', id:"room_facility_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"facility_#{flag}", flag
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Pets allowed', 'Smoking allowed', 'Suitable for events', 'Check in is anytime after 3PM', 'Check out by 11AM'].each do |flag|
+                = f.check_box(:rules, {multiple:'true', id:"room_rules_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"rules_#{flag}", flag
+              .comment
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title What kind of amenities?
+            .user_content_right_contents_content_list_input
+              - ['Breakfast', 'Lunch', 'Box Lunch option', 'Dinner'].each do |flag|
+                = f.check_box(:meal_time_of_day, {multiple:'true', id:"room_meal_time_of_day_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                = f.label :"meal_time_of_day_#{flag}", flag
+              .comment
+          = f.text_field :"host_id", type:"hidden", value:"#{@host.ids}"
+          .user_content_right_contents_content_list
+            .user_content_right_contents_content_list_title
+            .user_content_right_contents_content_list_input
+              = f.submit :Send, class: "form__submit btn btn-primary btn-large"
+
+
+
