@@ -61,7 +61,7 @@
           - if user_signed_in?
             %li.user
               .user_image#user_image
-                %a
+                = link_to '#' do
                   = image_tag("user_pic-50x50.png")
               .menu_list
                 .user_menu{style:"display: none;"}

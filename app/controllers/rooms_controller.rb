@@ -6,6 +6,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    # @rooms = Room.where(host_id: Host.where(user_id: current_user.id).ids)
     @room = Room.find(params[:id])
   end
 
@@ -32,7 +33,7 @@ class RoomsController < ApplicationController
   end
   private
   def room_params
-      params.require(:room).permit(:title, :price, :cleaning_cost, :vat_jst, :location, :description, :hm_rooms, :hm_bets, :hm_bathrooms, :host_id, :roomtype, amenity:[], facility:[], rules:[], meal_time_of_day:[])
+      params.require(:room).permit(:title, :price, :cleaning_cost, :vat_jst, :location, :description, :hm_rooms, :hm_bets, :hm_bathrooms, :host_id, :roomtype, amenity:[], facility:[], rules:[], meal_time_of_day:[]).merge(user_id: current_user.id)
   end
 
   def move_to_index

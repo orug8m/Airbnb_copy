@@ -47,14 +47,14 @@
           = f.text_field :room_id, type:"hidden", value:"#{@room.id}"
           .booking_form_box
             .price
-              .price_content ¥ #{number_with_delimiter(@room.price)} per night
+              .price_content ¥ #{@room.price} per night
             .form
               .form_inputarea
                 .form_inputarea_check
                   .form_inputarea_check_half
                     .text Check In
                     .inputarea
-                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD 15:00:00'}, class:"datepicker form-control", id:"reserve-start-date", placeholder:"YYYY-MM-DD", autocomplete:"off"
+                      = f.text_field :start_date, data: { date_format: 'YYYY-MM-DD 15:00:00'}, class:"datepicker form-control", id:"reserve-start-date", placeholder:"YYYY-MM-DD"
                   .form_inputarea_check_half
                     .text Check Out
                     .inputarea
@@ -75,12 +75,12 @@
                 .form_inputarea_guests
                   .text Guests
                   .input_guests_area
-                    = f.text_field :total_guests, class:"input_guests", placeholder:"How many guests?", autocomplete:"off"
+                    = f.text_field :total_guests, class:"input_guests", placeholder:"How many guests?"
                     .selectarea
                       .select_area_contents
                         %li.list_box
                           .text_area
-                            .text.heavy Adults
+                            .text Adults
                           .button_area
                             .plus_minus_button
                               .symbol_plus_minus
@@ -95,9 +95,9 @@
                                     %svg{ viewBox:"0 0 24 24", role:"img", aria:{label:"add"}, focusable:"false", style:"height: 1em; width: 1em; display: block; fill: currentcolor;"}
                                       %rect{ width:"12", height:"2", x:"6", y:"11", rx:"1"}
                                       %rect{ width:"2", height:"12", x:"11", y:"6", rx:"1"}
-                        %li.list_box.clearfix
+                        %li.list_box
                           .text_area
-                            .text.heavy Children
+                            .text Children
                             .text_comment
                           .button_area
                             .plus_minus_button
