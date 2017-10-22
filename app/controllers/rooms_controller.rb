@@ -27,6 +27,7 @@ class RoomsController < ApplicationController
     @current_room_data = Room.find(params[:id])
     @host = Host.where(user_id: current_user.id)
     @room = Room.new
+    @roomimage = RoomImage.new
   end
 
   def update

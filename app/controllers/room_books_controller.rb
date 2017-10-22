@@ -4,7 +4,7 @@ class RoomBooksController < ApplicationController
     if @room_book.save
       redirect_to root_path notice:"予約が完了しました"
     else
-      redirect_to root_path notice:"予約が失敗しました"
+      redirect_to root_path error:"予約が失敗しました"
     end
   end
 
