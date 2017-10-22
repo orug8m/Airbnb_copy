@@ -3,10 +3,9 @@ class RoomImagesController < ApplicationController
   def create
     @roomimage = RoomImage.new(roomimage_params)
     if  @roomimage.save
-      redirect_to edit_room_path(id: params[:room_id]), notice:"予約が完了しました"
-
+      redirect_to edit_room_path(id: params[:room_id]), notice:"uploaded"
     else
-      # render edit_room_path(id: params[:room_id])
+      redirect_to edit_room_path(id: params[:room_id]), error:"fdiled"
     end
   end
   private
