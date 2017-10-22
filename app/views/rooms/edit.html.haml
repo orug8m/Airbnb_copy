@@ -20,6 +20,9 @@
             - @room.errors.full_messages.each do |msg|
               %li= msg
       .user_content_right_contents
+        .user_content_right_contents_title Upload your photo
+        .user_content_right_contents_content
+      .user_content_right_contents
         .user_content_right_contents_title Required
         .user_content_right_contents_content
         = form_for(@room, url: {action: :update}, method: :patch, type: :hidden) do |f|
