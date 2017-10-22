@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022044043) do
+ActiveRecord::Schema.define(version: 20171022061428) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "last_name",                     null: false
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20171022044043) do
 
   create_table "room_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "image_url",  limit: 65535, null: false
-    t.integer  "room_id",                  null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "room_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image",      null: false
     t.index ["room_id"], name: "index_room_images_on_room_id", using: :btree
   end
 

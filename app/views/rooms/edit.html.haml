@@ -19,15 +19,22 @@
           %ul
             - @room.errors.full_messages.each do |msg|
               %li= msg
+      - if @roomimage.errors.any?
+        .form__errors
+          %h2= "#{@roomimage.errors.count}件のエラーが発生しました。"
+          %ul
+            - @roomimage.errors.full_messages.each do |img|
+              %li= img
       .user_content_right_contents
         .user_content_right_contents_title Upload your photo
         .user_content_right_contents_content
-          = form_for [@current_room_data, @roomimage], html: {id: 'new_photo'} do |i|
+          = form_for [@current_room_data, @roomimage], html: {id:'new_photo', multiple:"true"} do |i|
             = i.text_field :title, class:"user_inputbox", id: "", placeholder: "title your photo.", autocomplete: "off"
             .form__mask
               %label{for: "message_image", class: "form__mask__image"}
                 %i.fa.fa-picture-o.icon
-                = i.file_field :image_url, tyep: :hidden, id: "message_image"
+                = i.file_field :image, class:"hidden", id: "message_image"
+                = i.text_field :room_id, type:"hidden", value:"#{@current_room_data.id}"
             = i.submit :Send, class: "form__submit btn btn-primary btn-large"
       .user_content_right_contents
         .user_content_right_contents_title Required
