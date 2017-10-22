@@ -78,17 +78,19 @@ input{
   -moz-appearance: none;
   appearance: none;
 }
+input[type="checkbox"] + label{
+    background: none;
+    border: 1px solid #dce0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px;
+    margin:2px;
+}
 input[type="checkbox"]:checked + label{
     background-color: $light_gray;
 }
 label{
-  background: none;
-  border: 1px solid #dce0e0;
-  border-radius: 4px;
-  cursor: pointer;
-  display: inline-block;
-  padding: 2px;
-  margin:2px;
   &.form__mask__image{
     background: none;
     border: none;
