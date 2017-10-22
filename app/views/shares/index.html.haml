@@ -1,43 +1,15 @@
 .content.clearfix
   .main_content
-    %h3.toppage Just booked in Tokyo
+    %h3.toppage Stay in wonderful place!
     .experiences
       .experience_box
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
-    %h3.toppage Just booked in Taiwan
-    .experiences
-      .experience_box
-        .experience
-          .ex_image
-          .subtitle
-            .genre SAKE TASTING ·
-            .currency ¥
-            .price 8,000
-          .introtitle Learn and Taste MANY Sake with an Expert
+        - if @rooms.present?
+          - @rooms.each do |hostproduct|
+            .experience
+              = link_to room_path(hostproduct.id) do
+                .ex_image{style:"background-image: url(https://a0.muscache.com/airbnb/static/slash_host/never_a_stranger-91db63c401ad8301408ec3f24fd0f113.jpg); background-size:contain; background-repeat: no-repeat;"}
+                .subtitle
+                  .genre #{hostproduct.roomtype}
+                  .currency _¥
+                  .price #{number_with_delimiter(hostproduct.price)}
+                .introtitle #{hostproduct.title[0, 18]}...
