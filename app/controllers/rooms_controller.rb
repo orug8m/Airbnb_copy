@@ -26,12 +26,14 @@ class RoomsController < ApplicationController
   def edit
     @current_room_data = Room.find(params[:id])
     @host = Host.where(user_id: current_user.id)
-    @room = Room.new
+    # @room = Room.new
     @roomimage = RoomImage.new
   end
 
   def update
-    if @room.update(room_params)
+    @host = Host.where(user_id: current_user.id)
+    @current_room_data = Room.find(params[:id])
+    if @current_room_data.update(room_params)
       redirect_to root_path, notice: "部屋情報を変更しました：更新成功！"
     else
       render :edit
@@ -39,7 +41,7 @@ class RoomsController < ApplicationController
   end
   private
   def room_params
-      params.require(:room).permit(:title, :price, :cleaning_cost, :vat_jst, :location, :description, :hm_rooms, :hm_bets, :hm_bathrooms, :host_id, :roomtype, amenity:[], facility:[], rules:[], meal_time_of_day:[])
+      params.require(:room).permit(:title, :price, :cleaning_cost, :vat_jst, :location, :description, :hm_rooms, :hm_bets, :hm_bathrooms, :host_id, :roomtype, :country, :rate, landmark:[], amenity:[], facility:[], rules:[], meal_time_of_day:[])
   end
 
   def move_to_index

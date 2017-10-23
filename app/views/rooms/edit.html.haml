@@ -13,33 +13,27 @@
 .user_wrap.clearfix
   .user_content
     .user_content_right
-      - if @room.errors.any?
+      - if @current_room_data.errors.any?
         .form__errors
-          %h2= "#{@room.errors.count}件のエラーが発生しました。"
+          %h2= "#{@current_room_data.errors.count}件のエラーが発生しました。"
           %ul
-            - @room.errors.full_messages.each do |msg|
+            - @current_room_data.errors.full_messages.each do |msg|
               %li= msg
-      - if @roomimage.errors.any?
-        .form__errors
-          %h2= "#{@roomimage.errors.count}件のエラーが発生しました。"
-          %ul
-            - @roomimage.errors.full_messages.each do |img|
-              %li= img
-      .user_content_right_contents
-        .user_content_right_contents_title Upload your photo
-        .user_content_right_contents_content
-          = form_for [@current_room_data, @roomimage], html: {id:'new_photo', multiple:"true"} do |i|
-            .form__mask
-              %label{for: "message_image", class: "form__mask__image"}
-                %i.fa.fa-picture-o.icon
-                = i.file_field :image, class:"hidden", id: "message_image"
-                = i.text_field :room_id, type:"hidden", value:"#{@current_room_data.id}"
-            = i.text_field :title, class:"user_inputbox", id: "", placeholder: "title your photo.", autocomplete: "off"
-            = i.submit :Send, class: "form__submit btn btn-primary btn-large"
+      / .user_content_right_contents
+      /   .user_content_right_contents_title Upload your photo
+      /   .user_content_right_contents_content
+      /     = form_for [@current_room_data, @roomimage], html: {id:'new_photo', multiple:"true"} do |i|
+      /       .form__mask
+      /         %label{for: "message_image", class: "form__mask__image"}
+      /           %i.fa.fa-picture-o.icon
+      /           = i.file_field :image, class:"hidden", id: "message_image"
+      /           = i.text_field :room_id, type:"hidden", value:"#{@current_room_data.id}"
+      /       = i.text_field :title, class:"user_inputbox", id: "", placeholder: "title your photo.", autocomplete: "off"
+      /       = i.submit :Send, class: "form__submit btn btn-primary btn-large"
       .user_content_right_contents
         .user_content_right_contents_title Required
         .user_content_right_contents_content
-          = form_for(@room, url: {action: :update}, method: :patch, type: :hidden) do |f|
+          = form_for(@current_room_data, url: {action: :update}, method: :patch, type: :hidden) do |f|
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Title
               .user_content_right_contents_content_list_input
@@ -70,10 +64,33 @@
                 %span{class:"arrowtobottom"}
               .comment
             .user_content_right_contents_content_list
-              .user_content_right_contents_content_list_title Place
+              .user_content_right_contents_content_list_title Country
               .user_content_right_contents_content_list_input
-                = f.text_field :location, id:"", class:"user_inputbox", placeholder:"your location", autocomplete: "off"
-                .comment This is only shared once you have a confirmed booking with another Airbnb user. This is how we can all get in touch.
+                .select_box
+                  = f.select :country, [["Country", ""], ["America", "America"], ["Japan", "Japan"], ["Germany", "Germany"], ["Taiwan", "Taiwan"]], {}, {class: 'select_gender'}
+                  %span{class:"arrowtobottom"}
+                .comment Please select your country.
+            .user_content_right_contents_content_list
+              .user_content_right_contents_content_list_title Area
+              .user_content_right_contents_content_list_input
+                .select_box
+                  = f.select :location, [["Area", ""], ["Hokkaido", "Hokkaido"], ["Tokyo", "Tokyo"], ["Osaka", "Osaka"], ["Fukuoka", "Fukuoka"], ["Okinawa", "Okinawa"]], {}, {class: 'select_gender'}
+                  %span{class:"arrowtobottom"}
+                .comment Select your area
+            .user_content_right_contents_content_list
+              .user_content_right_contents_content_list_title Landmarks
+              .user_content_right_contents_content_list_input
+                - ['美ら海水族館', '首里城', '那覇市内', '石垣島', 'ひめゆりの塔','那覇国際空港'].each do |flag|
+                  = f.check_box(:landmark, {multiple:'true', id:"room_landmark_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                  = f.label :"landmark_#{flag}", flag
+                .comment please select near landmarks (in 15min by walk)
+            .user_content_right_contents_content_list
+              .user_content_right_contents_content_list_title Rate
+              .user_content_right_contents_content_list_input
+                .select_box
+                  = f.select :rate, [["Rate", ""], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], {}, {class: 'select_gender'}
+                  %span{class:"arrowtobottom"}
+                .comment Select Rate(tempolary)
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Explain your room, all about!
               .user_content_right_contents_content_list_textarea

@@ -53,10 +53,33 @@
                 %span{class:"arrowtobottom"}
               .comment
             .user_content_right_contents_content_list
-              .user_content_right_contents_content_list_title Place
+              .user_content_right_contents_content_list_title Country
               .user_content_right_contents_content_list_input
-                = f.text_field :location, id:"", class:"user_inputbox", placeholder:"your location", autocomplete: "off"
-                .comment This is only shared once you have a confirmed booking with another Airbnb user. This is how we can all get in touch.
+                .select_box
+                  = f.select :country, [["Country", ""], ["America", "America"], ["Japan", "Japan"], ["Germany", "Germany"], ["Taiwan", "Taiwan"]], {}, {class: 'select_gender'}
+                  %span{class:"arrowtobottom"}
+                .comment Please select your country.
+            .user_content_right_contents_content_list
+              .user_content_right_contents_content_list_title Area
+              .user_content_right_contents_content_list_input
+                .select_box
+                  = f.select :location, [["Area", ""], ["Hokkaido", "Hokkaido"], ["Tokyo", "Tokyo"], ["Osaka", "Osaka"], ["Fukuoka", "Fukuoka"], ["Okinawa", "Okinawa"]], {}, {class: 'select_gender'}
+                  %span{class:"arrowtobottom"}
+                .comment Select your area
+            .user_content_right_contents_content_list
+              .user_content_right_contents_content_list_title Landmarks
+              .user_content_right_contents_content_list_input
+                - ['美ら海水族館', '首里城', '那覇市内', '石垣島', 'ひめゆりの塔','那覇国際空港'].each do |flag|
+                  = f.check_box(:landmark, {multiple:'true', id:"room_landmark_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
+                  = f.label :"landmark_#{flag}", flag
+                .comment please select near landmarks (in 15min by walk)
+            .user_content_right_contents_content_list
+              .user_content_right_contents_content_list_title Rate
+              .user_content_right_contents_content_list_input
+                .select_box
+                  = f.select :rate, [["Rate", ""], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], {}, {class: 'select_gender'}
+                  %span{class:"arrowtobottom"}
+                .comment Select Rate(tempolary)
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Explain your room, all about!
               .user_content_right_contents_content_list_input
