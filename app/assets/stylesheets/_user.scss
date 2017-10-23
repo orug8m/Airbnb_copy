@@ -145,12 +145,12 @@
 
 .user__wrap {
   width: 536px;
-  height: 559px;
+  // height: 559px;
   position: relative;
   margin: 0 auto;
   &__field{
     width: 504px;
-    height: 527px;
+    display: inline-block;
     padding: 32px;
     margin: 0 auto;
     .field_box{

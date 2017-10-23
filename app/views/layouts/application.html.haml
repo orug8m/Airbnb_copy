@@ -78,7 +78,7 @@
                               Host profile
                       .menu_text
                         .menu_text_content
-                          = link_to destroy_user_session_path do
+                          = link_to destroy_user_session_path,{ method: :delete,} do
                             Log out
                 %svg{ class:"hat", style:"display: none;"}
                   %path{ class:"white", d:"M0,10 20,10 10,0z"}
