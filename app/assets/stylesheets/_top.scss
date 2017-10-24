@@ -1,173 +1,174 @@
-.content{
-  padding: 0 24px;
-  .main_content{
-    box-sizing: border-box;
-    max-width: 1380px;
-    h3.toppage{
-      font-size: 32px;
-      line-height: 40px;
-      letter-spacing: -0.6px;
-      padding-top: 0px;
-      padding-bottom: 0px;
-      color: $gray;
-      font-weight: 700;
-      margin: 48px 0 24px 0;
-    }
-    .experiences{
-      float: left;
-      .experience_box{
-        margin: 0 -8px;
-        float: left;
-        .experience{
-          padding: 8px 8px 16px 8px;
-          width: 325px;
-          height: 345px;
-          float: left;
-          .ex_image{
-            width: 325px;
-            height: 215px;
-            background-color: $light_gray;
-          }
-          .subtitle{
-            font-weight: 700;
-            font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-            font-size: 11px;
-            line-height: 16px;
-            letter-spacing: 0.2px;
-            padding-top: 0px;
-            padding-bottom: 0px;
-            color: $gray;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            text-transform: uppercase;
-            margin-top: 12px;
-            margin-bottom: 2px;
-            .genre{
-              float: left;
-            }
-            .currency{
-              float: left;
-            }
-            .price{
-              float: left;
-            }
-          }
-          .introtitle{
-            font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-            font-size: 24px;
-            line-height: 28px;
-            letter-spacing: -0.4px;
-            padding-top: 0px;
-            padding-bottom: 0px;
-            color: $gray;
-            font-weight: 700;
-            max-height: 56px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            float: left;
-          }
-        }
-      }
-    }
-    .left_content{
-      box-sizing: border-box;
-      max-width: 690px;
-      float: left;
-      h3.toppage{
-        font-size: 32px;
-        line-height: 40px;
-        letter-spacing: -0.6px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        color: $gray;
-        font-weight: 700;
-        margin: 48px 0 24px 0;
-      }
-      .experiences{
-        float: left;
-        .experience_box{
-          margin: 0 -8px;
-          float: left;
-          .experience{
-            padding: 8px 8px 16px 8px;
-            width: 325px;
-            height: 345px;
-            float: left;
-            .ex_image{
-              width: 325px;
-              height: 215px;
-              background-color: $light_gray;
-            }
-            .subtitle{
-              font-weight: 700;
-              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-              font-size: 11px;
-              line-height: 16px;
-              letter-spacing: 0.2px;
-              padding-top: 0px;
-              padding-bottom: 0px;
-              color: $gray;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              white-space: nowrap;
-              text-transform: uppercase;
-              margin-top: 12px;
-              margin-bottom: 2px;
-              .genre{
-                float: left;
-              }
-              .currency{
-                float: left;
-              }
-              .price{
-                float: left;
-              }
-            }
-            .introtitle{
-              font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
-              font-size: 24px;
-              line-height: 28px;
-              letter-spacing: -0.4px;
-              padding-top: 0px;
-              padding-bottom: 0px;
-              color: $gray;
-              font-weight: 700;
-              max-height: 56px;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              display: -webkit-box;
-              -webkit-line-clamp: 2;
-              -webkit-box-orient: vertical;
-              float: left;
-            }
-          }
-        }
-      }
-    }
-    .right_content{
-      box-sizing: border-box;
-      z-index: 10;
-      left: auto;
-      display: block;
-      width: 34%;
-      position: fixed;
-      top: 105px;
-      right: 0px;
-      bottom: 0px;
-      display: block;
-      .map_content{
-        width: 100%;
-        position: absolute;
-        #map {
-          width: 100%;
-          height: 740px;
-          background-color: rgb(164, 221, 245);
-        }
-      }
-    }
-  }
-}
+// .content{
+//   padding: 0 24px;
+//   .main_content{
+//     box-sizing: border-box;
+//     max-width: 1380px;
+//     h3.toppage{
+//       font-size: 32px;
+//       line-height: 40px;
+//       letter-spacing: -0.6px;
+//       padding-top: 0px;
+//       padding-bottom: 0px;
+//       color: $gray;
+//       font-weight: 700;
+//       margin: 48px 0 24px 0;
+//     }
+//     .experiences{
+//       float: left;
+//       width: 100%;
+//       .experience_box{
+//         margin: 0 -8px;
+//         float: left;
+//         .experience{
+//           padding: 8px 8px 16px 8px;
+//           width: 325px;
+//           height: 345px;
+//           float: left;
+//           .ex_image{
+//             width: 325px;
+//             height: 215px;
+//             background-color: $light_gray;
+//           }
+//           .subtitle{
+//             font-weight: 700;
+//             font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+//             font-size: 11px;
+//             line-height: 16px;
+//             letter-spacing: 0.2px;
+//             padding-top: 0px;
+//             padding-bottom: 0px;
+//             color: $gray;
+//             text-overflow: ellipsis;
+//             overflow: hidden;
+//             white-space: nowrap;
+//             text-transform: uppercase;
+//             margin-top: 12px;
+//             margin-bottom: 2px;
+//             .genre{
+//               float: left;
+//             }
+//             .currency{
+//               float: left;
+//             }
+//             .price{
+//               float: left;
+//             }
+//           }
+//           .introtitle{
+//             font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+//             font-size: 24px;
+//             line-height: 28px;
+//             letter-spacing: -0.4px;
+//             padding-top: 0px;
+//             padding-bottom: 0px;
+//             color: $gray;
+//             font-weight: 700;
+//             max-height: 56px;
+//             overflow: hidden;
+//             text-overflow: ellipsis;
+//             display: -webkit-box;
+//             -webkit-line-clamp: 2;
+//             -webkit-box-orient: vertical;
+//             float: left;
+//           }
+//         }
+//       }
+//     }
+//     .left_content{
+//       box-sizing: border-box;
+//       max-width: 690px;
+//       float: left;
+//       h3.toppage{
+//         font-size: 32px;
+//         line-height: 40px;
+//         letter-spacing: -0.6px;
+//         padding-top: 0px;
+//         padding-bottom: 0px;
+//         color: $gray;
+//         font-weight: 700;
+//         margin: 48px 0 24px 0;
+//       }
+//       .experiences{
+//         float: left;
+//         .experience_box{
+//           margin: 0 -8px;
+//           float: left;
+//           .experience{
+//             padding: 8px 8px 16px 8px;
+//             width: 325px;
+//             height: 345px;
+//             float: left;
+//             .ex_image{
+//               width: 325px;
+//               height: 215px;
+//               background-color: $light_gray;
+//             }
+//             .subtitle{
+//               font-weight: 700;
+//               font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+//               font-size: 11px;
+//               line-height: 16px;
+//               letter-spacing: 0.2px;
+//               padding-top: 0px;
+//               padding-bottom: 0px;
+//               color: $gray;
+//               text-overflow: ellipsis;
+//               overflow: hidden;
+//               white-space: nowrap;
+//               text-transform: uppercase;
+//               margin-top: 12px;
+//               margin-bottom: 2px;
+//               .genre{
+//                 float: left;
+//               }
+//               .currency{
+//                 float: left;
+//               }
+//               .price{
+//                 float: left;
+//               }
+//             }
+//             .introtitle{
+//               font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+//               font-size: 24px;
+//               line-height: 28px;
+//               letter-spacing: -0.4px;
+//               padding-top: 0px;
+//               padding-bottom: 0px;
+//               color: $gray;
+//               font-weight: 700;
+//               max-height: 56px;
+//               overflow: hidden;
+//               text-overflow: ellipsis;
+//               display: -webkit-box;
+//               -webkit-line-clamp: 2;
+//               -webkit-box-orient: vertical;
+//               float: left;
+//             }
+//           }
+//         }
+//       }
+//     }
+//     .right_content{
+//       box-sizing: border-box;
+//       z-index: 10;
+//       left: auto;
+//       display: block;
+//       width: 34%;
+//       position: fixed;
+//       top: 105px;
+//       right: 0px;
+//       bottom: 0px;
+//       display: block;
+//       .map_content{
+//         width: 100%;
+//         position: absolute;
+//         #map {
+//           width: 100%;
+//           height: 740px;
+//           background-color: rgb(164, 221, 245);
+//         }
+//       }
+//     }
+//   }
+// }

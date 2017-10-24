@@ -69,10 +69,9 @@
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Landmarks
               .user_content_right_contents_content_list_input
-                - ['美ら海水族館', '首里城', '那覇市内', '石垣島', 'ひめゆりの塔','那覇国際空港'].each do |flag|
-                  = f.check_box(:landmark, {multiple:'true', id:"room_landmark_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
-                  = f.label :"landmark_#{flag}", flag
-                .comment please select near landmarks (in 15min by walk)
+                = f.text_field [:tag_ids, Tag.all, :id, :keytag], id: "tag-search-field", class:"user_inputbox", placeholder: "追加したいタグ名を入力してください", value: "", autocomplete: "off"
+                .js-tag-search-result
+                .js-add-tag
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Rate
               .user_content_right_contents_content_list_input
@@ -105,7 +104,7 @@
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title What kind of amenities?
               .user_content_right_contents_content_list_input
-                - ['Heating', 'Kitchen', 'TV', 'Wireless Internet', 'Air conditioning','Buzzer/wireless intercom', 'Doorman', 'Dryer', 'Family/kid friendly', 'Hair dryer', 'Hangers', 'Indoor fireplace', 'Iron', 'Laptop friendly workspace', 'Lock on bedroom door', 'Self Check-In', 'Shampoo', 'Washer'].each do |flag|
+                - @amenity.each do |flag|
                   = f.check_box(:amenity, {multiple:'true', id:"room_amenity_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
                   = f.label :"amenity_#{flag}", flag
                 .comment
@@ -119,14 +118,14 @@
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title What kind of amenities?
               .user_content_right_contents_content_list_input
-                - ['Pets allowed', 'Smoking allowed', 'Suitable for events', 'Check in is anytime after 3PM', 'Check out by 11AM'].each do |flag|
+                - @rules.each do |flag|
                   = f.check_box(:rules, {multiple:'true', id:"room_rules_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
                   = f.label :"rules_#{flag}", flag
                 .comment
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title What kind of amenities?
               .user_content_right_contents_content_list_input
-                - ['Breakfast', 'Lunch', 'Box Lunch option', 'Dinner'].each do |flag|
+                - @meal_time_of_day.each do |flag|
                   = f.check_box(:meal_time_of_day, {multiple:'true', id:"room_meal_time_of_day_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
                   = f.label :"meal_time_of_day_#{flag}", flag
                 .comment

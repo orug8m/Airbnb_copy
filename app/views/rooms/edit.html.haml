@@ -80,10 +80,9 @@
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Landmarks
               .user_content_right_contents_content_list_input
-                - ['美ら海水族館', '首里城', '那覇市内', '石垣島', 'ひめゆりの塔','那覇国際空港'].each do |flag|
-                  = f.check_box(:landmark, {multiple:'true', id:"room_landmark_#{flag}", class:'checkbox',checked: 'true'}, flag, nil)
-                  = f.label :"landmark_#{flag}", flag
-                .comment please select near landmarks (in 15min by walk)
+                = f.text_field [:tag_ids, Tag.all, :id, :keytag], id: "tag-search-field", class:"user_inputbox", placeholder: "追加したいタグ名を入力してください", value: "", autocomplete: "off"
+                .js-tag-search-result
+                .js-add-tag
             .user_content_right_contents_content_list
               .user_content_right_contents_content_list_title Rate
               .user_content_right_contents_content_list_input

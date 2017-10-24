@@ -1,15 +1,21 @@
 .content.clearfix
   .main_content
-    %h3.toppage Stay in wonderful place!
-    .experiences
-      .experience_box
-        - if @rooms.present?
-          - @rooms.each do |hostproduct|
-            .experience
-              = link_to room_path(hostproduct.id) do
-                .ex_image{style:"background-image: url(https://a0.muscache.com/airbnb/static/slash_host/never_a_stranger-91db63c401ad8301408ec3f24fd0f113.jpg); background-size:contain; background-repeat: no-repeat;"}
-                .subtitle
-                  .genre #{hostproduct.roomtype}
-                  .currency _¥
-                  .price #{number_with_delimiter(hostproduct.price)}
-                .introtitle #{hostproduct.title[0, 18]}...
+    - if @tags.present?
+      - @tags.each do |landmark|
+        %h3.toppage.clearfix
+          Want to visit "#{landmark.keytag}"?
+        .experiences
+          .experience_box
+            - @rooms.present?
+            - @rooms.order('rate DESC').each do |room_tag|
+              - if room_tag.tags.ids.include?(landmark.id)
+                - if room_tag.present?
+                  .experience
+                    = link_to room_path(room_tag.id) do
+                      .ex_image{style:"background-image: url(https://a0.muscache.com/airbnb/static/slash_host/never_a_stranger-91db63c401ad8301408ec3f24fd0f113.jpg); background-size:contain; background-repeat: no-repeat;"}
+                      .subtitle
+                        .genre #{room_tag.roomtype}
+                        .currency _¥
+                        .price #{number_with_delimiter(room_tag.price)}
+                      .introtitle #{room_tag.title[0, 18]}...
+

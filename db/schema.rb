@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023092925) do
+ActiveRecord::Schema.define(version: 20171024044515) do
 
   create_table "hosts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "last_name",                     null: false
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20171023092925) do
     t.index ["room_id"], name: "index_room_images_on_room_id", using: :btree
   end
 
+  create_table "room_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "room_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_tags_on_room_id", using: :btree
+    t.index ["tag_id"], name: "index_room_tags_on_tag_id", using: :btree
+  end
+
   create_table "rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                          null: false
     t.integer  "price",                          null: false
@@ -77,6 +86,12 @@ ActiveRecord::Schema.define(version: 20171023092925) do
   end
 
   create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "keytag",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

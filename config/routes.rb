@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'shares#index'
   resources :users, only: [:edit, :update, :show]
   resources :hosts
+  resources :tags
   resources :shares, only: :index do
     collection do
       get 'search'
